@@ -17,19 +17,21 @@ function handleAdd(e) {
     console.log('Add was clicked');
 }
 
-export default function ActionBar() {
+const ActionBar = () => {
     return (
         <>
             <Button type='reset' onClick={handleAdd} children='And' />
 
             <div className='action-bar'>
-                <Button className='search' type='submit' variant='primary' onClick={handleSubmit}>
+                <Button className='search' type='submit' variant='primary' size='lg' onClick={handleSubmit}>
                     Search
                 </Button>
-                <Button type='reset' onClick={handleClick}>
+                <Button type='reset' size='lg' onClick={handleClick}>
                     Reset
                 </Button>
             </div>
         </>
     );
-}
+};
+
+export default ActionBar;

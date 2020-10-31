@@ -6,18 +6,20 @@ const propTypes = {
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     id: PropTypes.string,
     onClick: PropTypes.func,
+    size: PropTypes.oneOf(['sm', 'lg']),
     type: PropTypes.oneOf(['button', 'submit', 'reset', null]),
-    variant: PropTypes.PropTypes.oneOf(['primary', 'secondary', 'close']).isRequired,
+    variant: PropTypes.oneOf(['primary', 'secondary', 'close']).isRequired,
 };
 
 const defaultProps = {
+    size: 'sm',
     type: 'button',
     variant: 'secondary',
 };
 
 const Button = (props) => {
     return (
-        <button id={props.id} type={props.type} className={[`${props.variant}`]} onClick={props.onClick}>
+        <button id={props.id} type={props.type} className={[`${props.variant} ${props.size}`]} onClick={props.onClick}>
             {props.children}
         </button>
     );

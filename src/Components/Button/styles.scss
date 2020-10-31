@@ -11,8 +11,13 @@ button {
     letter-spacing: 0.05rem;
     line-height: 1;
     margin-right: 0.5rem;
-    padding: 0.5rem 1.25rem;
+    padding: 0.6rem 1.25rem;
+    text-align: center;
     transition: $base-transition;
+
+    &.lg {
+        padding: 0.75rem 1.75rem;
+    }
 
     &:hover {
         background-color: $hover;
@@ -45,9 +50,9 @@ button {
 
     &[type='submit'] {
         background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 15 15" style="enable-background:new 0 0 15 15;"%3E%3Cpath fill="%23ffffff" d="M15,13.9l-4.3-4.3C11.5,8.7,12,7.4,12,6c0-3.3-2.7-6-6-6S0,2.7,0,6s2.7,6,6,6c1.4,0,2.7-0.5,3.7-1.3L14,15 L15,13.9z M1.5,6c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5s-2,4.5-4.5,4.5S1.5,8.5,1.5,6z"/%3E%3C/svg%3E');
-        background-position: 1rem center;
+        background-position: 1.75rem center;
         background-repeat: no-repeat;
         background-size: 1rem;
-        padding-left: 2.5rem;
+        padding-left: 3.5rem;
     }
 }
