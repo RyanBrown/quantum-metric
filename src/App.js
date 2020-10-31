@@ -13,13 +13,13 @@ function App() {
         <>
             <h1>Search for Session</h1>
 
-            <FilterBlock>
-                <Button variant='close'></Button>
+            <div className='filter-block'>
+                <Button variant='close'>&times;</Button>
                 <DropDown />
                 <Marker variant='is' />
                 <DropDown />
                 <TextInput placeholder='website.com' type='url' />
-            </FilterBlock>
+            </div>
 
             {/*<FilterBlock>
                  <Button variant='close' children='&times;' />
