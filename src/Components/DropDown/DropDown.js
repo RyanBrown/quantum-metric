@@ -97,11 +97,17 @@ export default function DropDown() {
                 <option value='7'>Page Response time (ms)</option>
                 <option value='8'>Domain</option>
                 <option value='9'>Page Path</option>
-                <option value='10'>equals</option>
-                <option value='11'>between</option>
-                <option value='12'>greater than</option>
-                <option value='13'>less than</option>
-                <option value='14'>in list</option>
+                {/* Strings */}
+                <option value=''>equals</option>
+                <option value=''>contains</option>
+                <option value=''>starts with</option>
+                <option value=''>in list</option>
+                {/* Integers */}
+                <option value=''>equals</option>
+                <option value=''>between</option>
+                <option value=''>greater than</option>
+                <option value=''>less than</option>
+                <option value=''>in list</option>
             </select>
         </div>
     );
