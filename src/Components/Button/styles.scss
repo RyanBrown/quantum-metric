@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+button {
+    background-color: $gray;
+    border-radius: $border-radius-sm;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    font-family: $base-font;
+    font-size: 1rem;
+    line-height: 1;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    transition: $base-transition;
+
+    &:hover {
+        background-color: $hover;
+        color: $white;
+    }
+
+    &:focus {
+        outline: 0 none;
+    }
+
+    &.primary {
+        background-color: $blue;
+
+        &:hover {
+            background-color: $primary-hover;
+        }
+    }
+    &.close {
+        background-color: transparent;
+        color: $text-color;
+        font-size: 1.5rem;
+        font-weight: 100;
+        padding: 0 0.625rem;
+
+        &:hover {
+            background-color: $hover;
+            color: $white;
+        }
+    }
+}

@@ -1,18 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../Components/Button';
+import Button from '../Components/Button/Button';
+
+function handleClick(e) {
+    e.preventDefault();
+    console.log('Reset was clicked.');
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+    console.log('Search "submit" was clicked');
+}
+
+function handleAdd(e) {
+    e.preventDefault();
+    console.log('Add was clicked');
+}
 
 export default function ActionBar() {
     return (
         <>
-            <Button primary>And</Button>
+            <Button type='reset' onClick={handleClick} children='And' />
 
             <ActionBarWrap>
-                <Button id='id-button1' type='submit' primary>
-                    Search
+                <Button type='button' variant='primary' onClick={handleSubmit}>
+                    Button
                 </Button>
-                <Button id='id-button2' type='reset'>
-                    Reset
+                <Button type='reset' onClick={handleClick}>
+                    Primary
                 </Button>
             </ActionBarWrap>
         </>

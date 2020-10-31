@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import CloseButton from '../Components/CloseButton';
 import TextInput from '../Components/TextInput';
 import DropDown from '../Components/DropDown/DropDown';
 
-export default function FilterBlock() {
+import Button from '../Components/Button/Button';
+
+function handleRemove(e) {
+    e.preventDefault();
+    console.log('&times; was clicked');
+}
+
+function FilterBlock() {
     return (
         <FilterBlockWrap>
-            <CloseButton type='reset' />
+            <Button type='reset' variant='close' onClick={handleRemove} children='&times;' />
             <DropDown />
             <Marker>is</Marker>
             <TextInput placeholder='placeholder text' />
@@ -16,6 +22,8 @@ export default function FilterBlock() {
         </FilterBlockWrap>
     );
 }
+
+export default FilterBlock;
 
 const FilterBlockWrap = styled.div`
     background-color: #fff;
