@@ -1,23 +1,29 @@
 import React from 'react';
 import './styles.scss';
 
+// const stringDrop = ['equals', 'contains', 'starts with', 'in list'];
+// const integerDrop = ['equals', 'between', 'greater than', 'less than', 'in list'];
+
 var x, i, j, l, ll, selElement, a, b, c;
-/* Look for any elements with the class "custom-select": */
+// Look for any elements with the class "custom-select":
 x = document.getElementsByClassName('custom-select');
 l = x.length;
+
 for (i = 0; i < l; i++) {
     selElement = x[i].getElementsByTagName('select')[0];
     ll = selElement.length;
+
     /* For each element, create a new DIV that will act as the selected item: */
     a = document.createElement('DIV');
     a.setAttribute('class', 'select-selected');
     a.innerHTML = selElement.options[selElement.selectedIndex].innerHTML;
     x[i].appendChild(a);
-    /* For each element, create a new DIV that will contain the option list: */
+
+    // For each element, create a new DIV that will contain the option list:
     b = document.createElement('DIV');
     b.setAttribute('class', 'select-items select-hide');
     for (j = 1; j < ll; j++) {
-        /* For each option in the original select element, create a new DIV that will act as an option item: */
+        // For each option in the original select element, create a new DIV that will act as an option item:
         c = document.createElement('DIV');
         c.innerHTML = selElement.options[j].innerHTML;
         c.addEventListener('click', function (e) {
@@ -46,7 +52,7 @@ for (i = 0; i < l; i++) {
     }
     x[i].appendChild(b);
     a.addEventListener('click', function (e) {
-        /* When the select box is clicked, close any other select boxes, and open/close the current select box: */
+        // When the select box is clicked, close any other select boxes, and open/close the current select box:
         e.stopPropagation();
         closeAllSelect(this);
         this.nextSibling.classList.toggle('select-hide');
@@ -55,7 +61,7 @@ for (i = 0; i < l; i++) {
 }
 
 function closeAllSelect(element) {
-    /* A function that will close all select boxes in the document, except the current select box: */
+    // A function that will close all select boxes in the document, except the current select box:
     var x,
         y,
         i,
@@ -66,6 +72,7 @@ function closeAllSelect(element) {
     y = document.getElementsByClassName('select-selected');
     xl = x.length;
     yl = y.length;
+
     for (i = 0; i < yl; i++) {
         if (element === y[i]) {
             arrNo.push(i);
@@ -73,6 +80,7 @@ function closeAllSelect(element) {
             y[i].classList.remove('select-arrow-active');
         }
     }
+
     for (i = 0; i < xl; i++) {
         if (arrNo.indexOf(i)) {
             x[i].classList.add('select-hide');
@@ -80,7 +88,7 @@ function closeAllSelect(element) {
     }
 }
 
-/* If the user clicks anywhere outside the select box, then close all select boxes: */
+// If the user clicks anywhere outside the select box, then close all select boxes:
 document.addEventListener('click', closeAllSelect);
 
 export default function DropDown() {
