@@ -15,7 +15,9 @@ const Button = styled.button`
     font-family: sans-serif;
     font-size: 1.5rem;
     font-weight: 100;
-    line-height: 2rem;
+    line-height: 1;
+    margin-right: 0.5rem;
+    padding: 0 0.625rem;
     transition: all 200ms ease-in-out;
 
     &:hover {

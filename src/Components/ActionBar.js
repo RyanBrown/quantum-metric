@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../Button/Button';
+import Button from '../Components/Button';
 
 export default function ActionBar() {
     return (
         <>
+            <Button primary>And</Button>
+
             <ActionBarWrap>
                 <Button id='id-button1' type='submit' primary>
                     Search

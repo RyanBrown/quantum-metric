@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import CloseButton from '../CloseButton/CloseButton';
-import TextInput from '../TextInput/TextInput';
-import DropDown from '../DropDown/DropDown';
+import CloseButton from '../Components/CloseButton';
+import TextInput from '../Components/TextInput';
+import DropDown from '../Components/DropDown/DropDown';
 
 export default function FilterBlock() {
     return (
