@@ -16,23 +16,24 @@ ReactDOM.render(
         <FilterBlock>
             <Button variant='close' children='&times;' />
             <DropDown />
+            <Marker variant='is' />
             <DropDown />
             <TextInput placeholder='website.com' type='url' />
         </FilterBlock>
 
         <FilterBlock>
-            <Button variant='close' children='&times;' />
+            {/* <Button variant='close' children='&times;' />
             <DropDown />
             <Marker variant='is' />
             <DropDown />
-            <Marker variant='and' /> <TextInput />
+            <Marker variant='and' /> <TextInput /> */}
         </FilterBlock>
 
         <FilterBlock>
-            <Button variant='close' children='&times;' />
+            {/* <Button variant='close' children='&times;' />
             <DropDown />
             <DropDown />
-            <TextInput placeholder='johndoe@email.com' type='email' />
+            <TextInput placeholder='johndoe@email.com' type='email' /> */}
         </FilterBlock>
 
         <ActionBar />

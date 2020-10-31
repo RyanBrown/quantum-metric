@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const propTypes = {
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     id: PropTypes.string,
     onClick: PropTypes.func,
 };
