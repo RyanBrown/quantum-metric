@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FilterBlock from './Components/FilterBlock';
+import FilterBlock from './Components/FilterBlock/FilterBlock';
 import ActionBar from './Components/ActionBar/ActionBar';
 import Generated from './Components/Generated/Generated';
 import './styles/global.scss';

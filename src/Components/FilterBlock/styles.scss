@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.FilterBlockWrap {
+    background-color: $white;
+    border-radius: $border-radius-lg;
+    border: $input-border;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.Marker {
+    align-items: center;
+    background-color: $gray-200;
+    border-radius: $border-radius-sm;
+    border: $input-border;
+    display: flex;
+    font-size: 1rem;
+    font-weight: $font-weight-regular;
+    line-height: 1;
+    margin: 0 0.25rem;
+    padding: 0.5rem 0.75rem;
+}

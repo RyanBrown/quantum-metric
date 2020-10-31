@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../Components/Button/Button';
-import DropDown from '../Components/DropDown/DropDown';
-import TextInput from '../Components/TextInput/TextInput';
+import Button from '../Button/Button';
+import DropDown from '../DropDown/DropDown';
+import TextInput from '../TextInput/TextInput';
 
 function handleRemove(e) {
     e.preventDefault();
