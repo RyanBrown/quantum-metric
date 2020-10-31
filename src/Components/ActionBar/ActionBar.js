@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import Button from '../Components/Button/Button';
+import Button from '../Button/Button';
+import './styles.scss';
 
 function handleClick(e) {
     e.preventDefault();
@@ -20,22 +20,16 @@ function handleAdd(e) {
 export default function ActionBar() {
     return (
         <>
-            <Button type='reset' onClick={handleClick} children='And' />
+            <Button type='reset' onClick={handleAdd} children='And' />
 
-            <ActionBarWrap>
-                <Button type='button' variant='primary' onClick={handleSubmit}>
-                    Button
+            <div className='action-bar'>
+                <Button className='search' type='submit' variant='primary' onClick={handleSubmit}>
+                    Search
                 </Button>
                 <Button type='reset' onClick={handleClick}>
-                    Primary
+                    Reset
                 </Button>
-            </ActionBarWrap>
+            </div>
         </>
     );
 }
-
-const ActionBarWrap = styled.div`
-    border-top: 1px solid #e1e6ec;
-    margin-top: 3rem;
-    padding-top: 1rem;
-`;

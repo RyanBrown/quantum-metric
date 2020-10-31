@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import TextInput from '../Components/TextInput';
-import DropDown from '../Components/DropDown/DropDown';
-
 import Button from '../Components/Button/Button';
+import DropDown from '../Components/DropDown/DropDown';
+import TextInput from '../Components/TextInput/TextInput';
 
 function handleRemove(e) {
     e.preventDefault();
@@ -16,7 +15,7 @@ function FilterBlock() {
             <Button type='reset' variant='close' onClick={handleRemove} children='&times;' />
             <DropDown />
             <Marker>is</Marker>
-            <TextInput placeholder='placeholder text' />
+            <TextInput />
             <Marker>and</Marker>
             <TextInput placeholder='placeholder text' />
         </FilterBlockWrap>

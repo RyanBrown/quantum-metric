@@ -16,5 +16,13 @@ $hover: darken($gray, 20);
 $border-radius-sm: 0.3rem;
 $border-radius-lg: 0.35rem;
 
+// Font Sizes
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 600;
+
+// Borders
+$input-border: 1px solid $gray;
+
 // Transitions
 $base-transition: all 200ms ease-in-out;

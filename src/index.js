@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.scss';
 import FilterBlock from './Components/FilterBlock';
-import ActionBar from './Components/ActionBar';
-import Generated from './Components/Generated';
+import ActionBar from './Components/ActionBar/ActionBar';
+import Generated from './Components/Generated/Generated';
+import './styles/global.scss';
 
 ReactDOM.render(
     <React.StrictMode>
