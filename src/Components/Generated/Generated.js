@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles.scss';
 
-const Generated = () => {
+const propTypes = {
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+};
+
+const Generated = (props) => {
     return (
         <div className='generated-sql'>
             <pre>
-                <code>TEst</code>
+                <code>{props.children}</code>
             </pre>
-            {/* <textarea rows='6' placeholder='Your Generated SQL Statement goes here:' /> */}
         </div>
     );
 };
+
+Generated.displayName = 'Generated';
+Generated.propTypes = propTypes;
 
 export default Generated;

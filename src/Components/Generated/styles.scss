@@ -7,14 +7,16 @@
     display: flex;
     margin-top: 3rem;
     min-height: 8rem;
+    padding: 1rem;
+
+    pre {
+        margin: 0;
+    }
 
     code {
         background-color: transparent;
         border: none;
-        // font-family: $base-font;
-        font-size: 1rem;
-        padding: 1rem;
-        resize: none;
+        font-size: 0.85rem;
         width: 100%;
     }
 
