@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ActionBar from '../ActionBar/ActionBar';
 import Button from '../Button/Button';
 import FilterBlock from '../FilterBlock/FilterBlock';
 import Generated from '../Generated/Generated';
@@ -162,14 +161,14 @@ class Form extends Component {
                         </SelectMenu>
                     </FilterBlock>
 
-                    <ActionBar>
+                    <div className='action-bar'>
                         <Button type='submit' value='Submit' variant='primary'>
                             Search
                         </Button>
                         <Button type='reset' value='reset'>
                             Reset
                         </Button>
-                    </ActionBar>
+                    </div>
                 </form>
                 <Generated>
                     {/* SELECT studentID, FirstName, LastName, FirstName + ' ' + LastName AS FullName FROM session; */}
