@@ -23,6 +23,8 @@ class Form extends Component {
             domain: '',
             path: '',
             selectOption: '',
+            stringOptions: '',
+            integerOptions: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -131,37 +133,36 @@ class Form extends Component {
                             <Option value='test'>Test</Option>
                         </SelectMenu> */}
 
-                        <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
+                        <select value={this.state.stringOptions} name='stringOptions' onChange={this.handleChange}>
                             {/* Strings */}
-                            <option value='equals'>equals</option>
-                            <option value='contains'>contains</option>
-                            <option value='starts with'>starts with</option>
-                            <option value='in list'>in list</option>
+                            <option value='='>equals</option>
+                            <option value='CONTAINS'>contains</option>
+                            <option value='%STARTSWITH'>starts with</option>
+                            <option value='IN'>in list</option>
+                        </select>
+
+                        <select value={this.state.integerOptions} name='integerOptions' onChange={this.handleChange}>
+                            {/* Integers */}
+                            <option value='='>equals</option>
+                            <option value='BETWEEN'>between</option>
+                            <option value='>'>greater than</option>
+                            <option value='<'>less than</option>
+                            <option value='IN'>in list</option>
                         </select>
 
                         <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
-                            {/* Integers */}
-                            <option value='equals'>equals</option>
-                            <option value='between'>between</option>
-                            <option value='greater than'>greater than</option>
-                            <option value='less than'>less than</option>
-                            <option value='in list'>in list</option>
+                            {/* Predicated field options */}
+                            <option value='0'>Select Option:</option>
+                            <option value='User Email'>User Email</option>
+                            <option value='Screen Width'>Screen Width</option>
+                            <option value='Screen Height'>Screen Height</option>
+                            <option value='# of Visits'># of Visits</option>
+                            <option value='First Name'>First Name</option>
+                            <option value='Last Name'>Last Name</option>
+                            <option value='Page Response time (ms)'>Page Response time (ms)</option>
+                            <option value='Domain'>Domain</option>
+                            <option value='Page Path'>Page Path</option>
                         </select>
-
-                        <div className='select'>
-                            <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
-                                <option value='0'>Select Option:</option>
-                                <option value='User Email'>User Email</option>
-                                <option value='Screen Width'>Screen Width</option>
-                                <option value='Screen Height'>Screen Height</option>
-                                <option value='# of Visits'># of Visits</option>
-                                <option value='First Name'>First Name</option>
-                                <option value='Last Name'>Last Name</option>
-                                <option value='Page Response time (ms)'>Page Response time (ms)</option>
-                                <option value='Domain'>Domain</option>
-                                <option value='Page Path'>Page Path</option>
-                            </select>
-                        </div>
                     </div>
 
                     <ActionBar>
@@ -180,7 +181,14 @@ class Form extends Component {
                     {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
                     FROM session;
                     <br />
-                    Choice in selectOption: {this.state.selectOption}
+                    Choice in selectOption:
+                    {this.state.selectOption}
+                    <br />
+                    String Options:
+                    {this.state.stringOptions}
+                    <br />
+                    Integer Options:
+                    {this.state.integerOptions}
                 </Generated>
             </>
         );
