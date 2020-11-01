@@ -5,14 +5,11 @@ import Button from './Components/Button/Button';
 import './styles/global.scss';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            filterBlock: [{ value: 'row1' }],
-        };
-    }
+    state = {
+        filterBlock: [{ value: 'row1' }],
+    };
 
-    updateValue = (e, index) => {
+    updateFilterBlockList = (e, index) => {
         const filterBlock = [...this.state.filterBlock]; // copy array because we don't want to mutate the previous one
         filterBlock[index].value = e.target.value;
         this.setState({
@@ -40,7 +37,11 @@ class App extends Component {
                 {/* <Form /> */}
                 {this.state.filterBlock.map((row, index) => {
                     return (
-                        <FilterBlock key={index} value={row.value} onChange={(e) => this.updateValue(e, index)}>
+                        <FilterBlock
+                            key={index}
+                            value={row.value}
+                            onChange={(e) => this.updateFilterBlockList(e, index)}
+                        >
                             <Button onClick={this.deleteFilterBlock} variant='close'>
                                 &times;
                             </Button>
