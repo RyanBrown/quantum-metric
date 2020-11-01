@@ -23,7 +23,7 @@ class Form extends Component {
             page_response: '',
             domain: '',
             path: '',
-            selectOption: '',
+            predicatedOptions: '',
             stringOptions: '',
             integerOptions: '',
         };
@@ -52,8 +52,11 @@ class Form extends Component {
             <>
                 <form className='form' onSubmit={this.handleSubmit}>
                     <FilterBlock>
-                        <SelectMenu value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
-                            {/* Predicated field options */}
+                        <SelectMenu
+                            value={this.state.predicatedOptions}
+                            name='predicatedOptions'
+                            onChange={this.handleChange}
+                        >
                             <option value='0'>Predicated fields</option>
                             <option value='User Email'>User Email</option>
                             <option value='Screen Width'>Screen Width</option>
@@ -163,20 +166,6 @@ class Form extends Component {
                             <option value='<'>less than</option>
                             <option value='IN'>in list</option>
                         </SelectMenu>
-
-                        <SelectMenu value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
-                            {/* Predicated field options */}
-                            <option value='0'>Select Option:</option>
-                            <option value='User Email'>User Email</option>
-                            <option value='Screen Width'>Screen Width</option>
-                            <option value='Screen Height'>Screen Height</option>
-                            <option value='# of Visits'># of Visits</option>
-                            <option value='First Name'>First Name</option>
-                            <option value='Last Name'>Last Name</option>
-                            <option value='Page Response time (ms)'>Page Response time (ms)</option>
-                            <option value='Domain'>Domain</option>
-                            <option value='Page Path'>Page Path</option>
-                        </SelectMenu>
                     </FilterBlock>
 
                     <Button variant='primary'>And</Button>
@@ -197,7 +186,7 @@ class Form extends Component {
                     {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
                     FROM session;
                     <br />
-                    {this.state.selectOption}
+                    {this.state.predicatedOptions}
                     <br />
                     Strings:
                     {this.state.stringOptions}
