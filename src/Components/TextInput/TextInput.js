@@ -4,9 +4,12 @@ import './styles.scss';
 
 const propTypes = {
     id: PropTypes.string,
+    name: PropTypes.string,
     onClick: PropTypes.func,
+    onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'email', 'url', 'hidden']),
+    type: PropTypes.oneOf(['text', 'email', 'url', 'password', 'hidden']),
+    value: PropTypes.string,
 };
 
 const defaultProps = {
@@ -15,7 +18,17 @@ const defaultProps = {
 };
 
 const TextInput = (props) => {
-    return <input id={props.id} type={props.type} placeholder={props.placeholder} onClick={props.onClick} />;
+    return (
+        <input
+            id={props.id}
+            name={props.name}
+            placeholder={props.placeholder}
+            type={props.type}
+            value={props.value}
+            onChange={props.onChange}
+            onClick={props.onClick}
+        />
+    );
 };
 
 TextInput.displayName = 'TextInput';

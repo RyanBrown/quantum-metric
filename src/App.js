@@ -5,6 +5,7 @@ import DropDown from './Components/DropDown/DropDown';
 import Generated from './Components/Generated/Generated';
 import Marker from './Components/Marker/Marker';
 import TextInput from './Components/TextInput/TextInput';
+import Form from './Components/Form/Form';
 import './styles/global.scss';
 
 class App extends Component {
@@ -58,6 +59,8 @@ class App extends Component {
     render() {
         return (
             <>
+                <Form />
+
                 <h1>Search for Session</h1>
 
                 {this.state.filterBlock.map((row, index) => {
