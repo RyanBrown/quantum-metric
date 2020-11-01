@@ -52,6 +52,19 @@ class Form extends Component {
             <>
                 <form className='form' onSubmit={this.handleSubmit}>
                     <FilterBlock>
+                        <SelectMenu value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
+                            {/* Predicated field options */}
+                            <option value='0'>Predicated fields</option>
+                            <option value='User Email'>User Email</option>
+                            <option value='Screen Width'>Screen Width</option>
+                            <option value='Screen Height'>Screen Height</option>
+                            <option value='# of Visits'># of Visits</option>
+                            <option value='First Name'>First Name</option>
+                            <option value='Last Name'>Last Name</option>
+                            <option value='Page Response time (ms)'>Page Response time (ms)</option>
+                            <option value='Domain'>Domain</option>
+                            <option value='Page Path'>Page Path</option>
+                        </SelectMenu>
                         <TextInput
                             name='id'
                             onChange={this.handleChange}
@@ -63,7 +76,7 @@ class Form extends Component {
                         <TextInput
                             name='user_email'
                             onChange={this.handleChange}
-                            placeholder='Email Address'
+                            placeholder='User Email'
                             type='email'
                             value={this.state.user_email}
                         />
@@ -102,14 +115,14 @@ class Form extends Component {
                         <TextInput
                             name='visits'
                             onChange={this.handleChange}
-                            placeholder='Visits'
+                            placeholder='# of Visits'
                             type='text'
                             value={this.state.visits}
                         />
                         <TextInput
                             name='page_response'
                             onChange={this.handleChange}
-                            placeholder='Page Response'
+                            placeholder='Page Response time (ms)'
                             type='text'
                             value={this.state.page_response}
                         />
@@ -125,7 +138,7 @@ class Form extends Component {
                         <TextInput
                             name='path'
                             onChange={this.handleChange}
-                            placeholder='Path'
+                            placeholder='Page Path'
                             type='text'
                             value={this.state.path}
                         />
@@ -166,6 +179,8 @@ class Form extends Component {
                         </SelectMenu>
                     </FilterBlock>
 
+                    <Button variant='primary'>And</Button>
+
                     <ActionBar>
                         <Button type='submit' value='Submit' variant='primary'>
                             Search
@@ -182,7 +197,6 @@ class Form extends Component {
                     {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
                     FROM session;
                     <br />
-                    Choice in selectOption:
                     {this.state.selectOption}
                     <br />
                     Strings:
