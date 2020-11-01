@@ -90,8 +90,6 @@ class Form extends Component {
                             type='text'
                             value={this.state.user_first_name}
                         />
-                    </FilterBlock>
-                    <FilterBlock>
                         <TextInput
                             name='user_last_name'
                             onChange={this.handleChange}
@@ -113,8 +111,6 @@ class Form extends Component {
                             type='text'
                             value={this.state.screen_height}
                         />
-                    </FilterBlock>
-                    <FilterBlock>
                         <TextInput
                             name='visits'
                             onChange={this.handleChange}
@@ -136,8 +132,6 @@ class Form extends Component {
                             type='text'
                             value={this.state.domain}
                         />
-                    </FilterBlock>
-                    <FilterBlock>
                         <TextInput
                             name='path'
                             onChange={this.handleChange}
@@ -167,8 +161,6 @@ class Form extends Component {
                             <option value='IN'>in list</option>
                         </SelectMenu>
                     </FilterBlock>
-
-                    <Button variant='primary'>And</Button>
 
                     <ActionBar>
                         <Button type='submit' value='Submit' variant='primary'>

@@ -4,7 +4,7 @@ import './styles.scss';
 
 const propTypes = {
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-    id: PropTypes.string,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['sm', 'lg']),
     type: PropTypes.oneOf(['button', 'submit', 'reset', null]),
