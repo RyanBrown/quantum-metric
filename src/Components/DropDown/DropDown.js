@@ -8,26 +8,26 @@ export default function DropDown() {
     return (
         <select>
             <option value='0'>Select Option:</option>
-            <option value='1'>User Email</option>
-            <option value='2'>Screen Width</option>
-            <option value='3'>Screen Height</option>
-            <option value='4'># of Visits</option>
-            <option value='5'>First Name</option>
-            <option value='6'>Last Name</option>
-            <option value='7'>Page Response time (ms)</option>
-            <option value='8'>Domain</option>
-            <option value='9'>Page Path</option>
+            <option value='User Email'>User Email</option>
+            <option value='Screen Width'>Screen Width</option>
+            <option value='Screen Height'>Screen Height</option>
+            <option value='# of Visits'># of Visits</option>
+            <option value='First Name'>First Name</option>
+            <option value='Last Name'>Last Name</option>
+            <option value='Page Response time (ms)'>Page Response time (ms)</option>
+            <option value='Domain'>Domain</option>
+            <option value='Page Path'>Page Path</option>
             {/* Strings */}
-            <option value=''>equals</option>
-            <option value=''>contains</option>
-            <option value=''>starts with</option>
-            <option value=''>in list</option>
+            <option value='equals'>equals</option>
+            <option value='contains'>contains</option>
+            <option value='starts with'>starts with</option>
+            <option value='in list'>in list</option>
             {/* Integers */}
-            <option value=''>equals</option>
-            <option value=''>between</option>
-            <option value=''>greater than</option>
-            <option value=''>less than</option>
-            <option value=''>in list</option>
+            <option value='equals'>equals</option>
+            <option value='between'>between</option>
+            <option value='greater than'>greater than</option>
+            <option value='less than'>less than</option>
+            <option value='in list'>in list</option>
         </select>
     );
 }

@@ -12,6 +12,25 @@ class App extends Component {
         super(props);
         this.state = {
             filterBlock: [{ value: 'row1' }],
+
+            fullname: '',
+            emailaddress: '',
+            password: '',
+            editor: '',
+            message: '',
+            terms: false,
+            test: '',
+
+            id: '',
+            user_email: '',
+            user_first_name: '',
+            user_last_name: '',
+            screen_width: '',
+            screen_height: '',
+            visits: '',
+            page_response: '',
+            domain: '',
+            path: '',
         };
     }
 
