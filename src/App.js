@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ActionBar from './Components/ActionBar/ActionBar';
 import Button from './Components/Button/Button';
-import DropDown from './Components/DropDown/DropDown';
+import SelectMenu from './Components/SelectMenu/SelectMenu';
 import Generated from './Components/Generated/Generated';
 import Marker from './Components/Marker/Marker';
 import TextInput from './Components/TextInput/TextInput';
@@ -61,7 +61,7 @@ class App extends Component {
             <>
                 <Form />
 
-                <h1>Search for Session</h1>
+                {/* <h1>Search for Session</h1>
 
                 {this.state.filterBlock.map((row, index) => {
                     return (
@@ -76,7 +76,7 @@ class App extends Component {
                             </Button>
                             <TextInput />
                             <Marker variant='is' />
-                            <DropDown />
+                            <SelectMenu />
                         </div>
                     );
                 })}
@@ -85,7 +85,7 @@ class App extends Component {
                 </Button>
 
                 <ActionBar />
-                <Generated />
+                <Generated /> */}
             </>
         );
     }
