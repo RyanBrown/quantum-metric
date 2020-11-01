@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
 import FilterBlock from '../FilterBlock/FilterBlock';
-import Generated from '../Generated/Generated';
 import Marker from '../Marker/Marker';
 import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
@@ -170,21 +169,26 @@ class Form extends Component {
                         </Button>
                     </div>
                 </form>
-                <Generated>
-                    {/* SELECT studentID, FirstName, LastName, FirstName + ' ' + LastName AS FullName FROM session; */}
-                    SELECT {this.state.id}, {this.state.user_email}, {this.state.user_first_name},{' '}
-                    {this.state.user_last_name}, {this.state.screen_width}, {this.state.screen_height},{' '}
-                    {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
-                    FROM session;
-                    <br />
-                    {this.state.predicatedOptions}
-                    <br />
-                    Strings:
-                    {this.state.stringOptions}
-                    <br />
-                    Integers:
-                    {this.state.integerOptions}
-                </Generated>
+
+                <div className='generated-sql'>
+                    <pre>
+                        <code>
+                            {/* SELECT studentID, FirstName, LastName, FirstName + ' ' + LastName AS FullName FROM session; */}
+                            SELECT {this.state.id}, {this.state.user_email}, {this.state.user_first_name},{' '}
+                            {this.state.user_last_name}, {this.state.screen_width}, {this.state.screen_height},{' '}
+                            {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
+                            FROM session;
+                            <br />
+                            {this.state.predicatedOptions}
+                            <br />
+                            Strings:
+                            {this.state.stringOptions}
+                            <br />
+                            Integers:
+                            {this.state.integerOptions}
+                        </code>
+                    </pre>
+                </div>
             </>
         );
     }

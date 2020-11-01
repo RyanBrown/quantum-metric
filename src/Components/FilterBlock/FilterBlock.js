@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './styles.scss';
 
+// Set up form block wrappers
 const RowBlock = (props) => {
     return <div className='filter-block'>{props.children}</div>;
 };
 
+// Add/Remove blocks for form inputs
 export default function FilterBlock(props) {
     const [filterBlocks, setBlock] = useState([]);
     const [block, setNewBlock] = useState('');

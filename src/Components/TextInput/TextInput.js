@@ -8,7 +8,7 @@ const propTypes = {
     onClick: PropTypes.func,
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'email', 'url', 'password', 'hidden']),
+    type: PropTypes.oneOf(['text', 'email', 'url', 'hidden']),
     value: PropTypes.string,
 };
 
