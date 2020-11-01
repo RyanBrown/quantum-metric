@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ActionBar from '../ActionBar/ActionBar';
 import Button from '../Button/Button';
+import FilterBlock from '../FilterBlock/FilterBlock';
 import Generated from '../Generated/Generated';
 import Marker from '../Marker/Marker';
 import SelectMenu from '../SelectMenu/SelectMenu';
@@ -50,7 +51,7 @@ class Form extends Component {
         return (
             <>
                 <form className='form' onSubmit={this.handleSubmit}>
-                    <div className='filter-block'>
+                    <FilterBlock>
                         <TextInput
                             name='id'
                             onChange={this.handleChange}
@@ -73,8 +74,8 @@ class Form extends Component {
                             type='text'
                             value={this.state.user_first_name}
                         />
-                    </div>
-                    <div className='filter-block'>
+                    </FilterBlock>
+                    <FilterBlock>
                         <TextInput
                             name='user_last_name'
                             onChange={this.handleChange}
@@ -96,8 +97,8 @@ class Form extends Component {
                             type='text'
                             value={this.state.screen_height}
                         />
-                    </div>
-                    <div className='filter-block'>
+                    </FilterBlock>
+                    <FilterBlock>
                         <TextInput
                             name='visits'
                             onChange={this.handleChange}
@@ -119,8 +120,8 @@ class Form extends Component {
                             type='text'
                             value={this.state.domain}
                         />
-                    </div>
-                    <div className='filter-block'>
+                    </FilterBlock>
+                    <FilterBlock>
                         <TextInput
                             name='path'
                             onChange={this.handleChange}
@@ -163,7 +164,7 @@ class Form extends Component {
                             <option value='Domain'>Domain</option>
                             <option value='Page Path'>Page Path</option>
                         </SelectMenu>
-                    </div>
+                    </FilterBlock>
 
                     <ActionBar>
                         <Button type='submit' value='Submit' variant='primary'>
