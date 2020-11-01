@@ -3,7 +3,7 @@ import ActionBar from '../ActionBar/ActionBar';
 import Button from '../Button/Button';
 import Generated from '../Generated/Generated';
 import Marker from '../Marker/Marker';
-// import SelectMenu from '../SelectMenu/SelectMenu';
+import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
 
 import './styles.scss';
@@ -129,28 +129,28 @@ class Form extends Component {
                             value={this.state.path}
                         />
 
-                        {/* <SelectMenu>
-                            <Option value='test'>Test</Option>
-                        </SelectMenu> */}
-
-                        <select value={this.state.stringOptions} name='stringOptions' onChange={this.handleChange}>
-                            {/* Strings */}
+                        <SelectMenu value={this.state.stringOptions} name='stringOptions' onChange={this.handleChange}>
+                            <option value='0'>Strings</option>
                             <option value='='>equals</option>
                             <option value='CONTAINS'>contains</option>
                             <option value='%STARTSWITH'>starts with</option>
                             <option value='IN'>in list</option>
-                        </select>
+                        </SelectMenu>
 
-                        <select value={this.state.integerOptions} name='integerOptions' onChange={this.handleChange}>
-                            {/* Integers */}
+                        <SelectMenu
+                            value={this.state.integerOptions}
+                            name='integerOptions'
+                            onChange={this.handleChange}
+                        >
+                            <option value='0'>Integers</option>
                             <option value='='>equals</option>
                             <option value='BETWEEN'>between</option>
                             <option value='>'>greater than</option>
                             <option value='<'>less than</option>
                             <option value='IN'>in list</option>
-                        </select>
+                        </SelectMenu>
 
-                        <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
+                        <SelectMenu value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
                             {/* Predicated field options */}
                             <option value='0'>Select Option:</option>
                             <option value='User Email'>User Email</option>
@@ -162,7 +162,7 @@ class Form extends Component {
                             <option value='Page Response time (ms)'>Page Response time (ms)</option>
                             <option value='Domain'>Domain</option>
                             <option value='Page Path'>Page Path</option>
-                        </select>
+                        </SelectMenu>
                     </div>
 
                     <ActionBar>
@@ -184,10 +184,10 @@ class Form extends Component {
                     Choice in selectOption:
                     {this.state.selectOption}
                     <br />
-                    String Options:
+                    Strings:
                     {this.state.stringOptions}
                     <br />
-                    Integer Options:
+                    Integers:
                     {this.state.integerOptions}
                 </Generated>
             </>
