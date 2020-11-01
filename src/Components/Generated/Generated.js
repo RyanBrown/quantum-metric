@@ -1,10 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './styles.scss';
-
-const propTypes = {
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-};
 
 const Generated = (props) => {
     return (
@@ -15,8 +10,5 @@ const Generated = (props) => {
         </div>
     );
 };
-
-Generated.displayName = 'Generated';
-Generated.propTypes = propTypes;
 
 export default Generated;

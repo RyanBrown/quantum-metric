@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
+import ActionBar from '../ActionBar/ActionBar';
 import Button from '../Button/Button';
-import TextInput from '../TextInput/TextInput';
 import Generated from '../Generated/Generated';
+import Marker from '../Marker/Marker';
 import SelectMenu from '../SelectMenu/SelectMenu';
+import TextInput from '../TextInput/TextInput';
+
 import './styles.scss';
 
 class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullname: '',
-            user_email: '',
             password: '',
             editor: '',
-            message: '',
-            // terms: false,
-            // test: '',
+
+            id: '',
+            user_email: '',
+            user_first_name: '',
+            user_last_name: '',
+            screen_width: '',
+            screen_height: '',
+            visits: '',
+            page_response: '',
+            domain: '',
+            path: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -43,13 +52,12 @@ class Form extends Component {
                 <form className='form' onSubmit={this.handleSubmit}>
                     <div className='filter-block'>
                         <TextInput
-                            name='fullname'
+                            name='id'
                             onChange={this.handleChange}
-                            placeholder='name'
+                            placeholder='id'
                             type='text'
-                            value={this.state.fullname}
+                            value={this.state.id}
                         />
-
                         <TextInput
                             name='user_email'
                             onChange={this.handleChange}
@@ -57,7 +65,62 @@ class Form extends Component {
                             type='email'
                             value={this.state.user_email}
                         />
-
+                        <TextInput
+                            name='user_first_name'
+                            onChange={this.handleChange}
+                            placeholder='First Name'
+                            type='text'
+                            value={this.state.user_first_name}
+                        />
+                        <TextInput
+                            name='user_last_name'
+                            onChange={this.handleChange}
+                            placeholder='Last Name'
+                            type='text'
+                            value={this.state.user_last_name}
+                        />
+                        <TextInput
+                            name='screen_width'
+                            onChange={this.handleChange}
+                            placeholder='Screen Width'
+                            type='text'
+                            value={this.state.screen_width}
+                        />
+                        <TextInput
+                            name='screen_height'
+                            onChange={this.handleChange}
+                            placeholder='Screen Height'
+                            type='text'
+                            value={this.state.screen_height}
+                        />
+                        <TextInput
+                            name='visits'
+                            onChange={this.handleChange}
+                            placeholder='Visits'
+                            type='text'
+                            value={this.state.visits}
+                        />
+                        <TextInput
+                            name='page_response'
+                            onChange={this.handleChange}
+                            placeholder='Page Response'
+                            type='text'
+                            value={this.state.page_response}
+                        />
+                        <TextInput
+                            name='domain'
+                            onChange={this.handleChange}
+                            placeholder='Domain'
+                            type='text'
+                            value={this.state.domain}
+                        />
+                        <TextInput
+                            name='path'
+                            onChange={this.handleChange}
+                            placeholder='Path'
+                            type='text'
+                            value={this.state.path}
+                        />
                         <TextInput
                             name='password'
                             onChange={this.handleChange}
@@ -102,21 +165,44 @@ class Form extends Component {
                         </div>
                     </div>
 
-                    <Button type='submit' value='Submit' variant='primary'>
-                        Search
-                    </Button>
-                    <Button type='reset' value='reset'>
-                        Reset
-                    </Button>
+                    <ActionBar>
+                        <Button type='submit' value='Submit' variant='primary'>
+                            Search
+                        </Button>
+                        <Button type='reset' value='reset'>
+                            Reset
+                        </Button>
+                    </ActionBar>
                 </form>
                 <Generated>
-                    <p>Full Name: {this.state.fullname}</p>
-                    <p>Email Address: {this.state.user_email}</p>
-                    <p>Password: {this.state.password}</p>
-                    <p>Choice in Editor: {this.state.editor}</p>
-                    {/* <p>Why React: {this.state.message}</p> */}
-                    {/* <p>Terms and Condition: {this.state.terms}</p> */}
-                    {/* <p>Do you test?: {this.state.test}</p> */}
+                    {/* SELECT studentID, FirstName, LastName, FirstName + ' ' + LastName AS FullName FROM session; */}
+                    SELECT id, user_email, user_first_name, user_last_name, screen_width, screen_height, visits,
+                    page_response, domain, path FROM session;
+                    <br />
+                    Password: {this.state.password}
+                    <br />
+                    Choice in Editor: {this.state.editor}
+                    <br />
+                    <br />
+                    id: {this.state.id}
+                    <br />
+                    user_email: {this.state.user_email}
+                    <br />
+                    user_first_name: {this.state.user_first_name}
+                    <br />
+                    user_last_name: {this.state.user_last_name}
+                    <br />
+                    screen_width: {this.state.screen_width}
+                    <br />
+                    screen_height: {this.state.screen_height}
+                    <br />
+                    visits: {this.state.visits}
+                    <br />
+                    page_response: {this.state.page_response}
+                    <br />
+                    domain: {this.state.domain}
+                    <br />
+                    path: {this.state.path}
                 </Generated>
             </>
         );

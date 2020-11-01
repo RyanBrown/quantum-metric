@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import ActionBar from './Components/ActionBar/ActionBar';
-import Button from './Components/Button/Button';
-import SelectMenu from './Components/SelectMenu/SelectMenu';
-import Generated from './Components/Generated/Generated';
-import Marker from './Components/Marker/Marker';
-import TextInput from './Components/TextInput/TextInput';
 import Form from './Components/Form/Form';
 import './styles/global.scss';
 
