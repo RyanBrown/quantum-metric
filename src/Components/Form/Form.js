@@ -3,7 +3,7 @@ import ActionBar from '../ActionBar/ActionBar';
 import Button from '../Button/Button';
 import Generated from '../Generated/Generated';
 import Marker from '../Marker/Marker';
-import SelectMenu from '../SelectMenu/SelectMenu';
+// import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
 
 import './styles.scss';
@@ -12,9 +12,6 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            password: '',
-            editor: '',
-
             id: '',
             user_email: '',
             user_first_name: '',
@@ -25,14 +22,15 @@ class Form extends Component {
             page_response: '',
             domain: '',
             path: '',
+            selectOption: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        const target = event.target;
+    handleChange(e) {
+        const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
@@ -41,8 +39,8 @@ class Form extends Component {
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
+    handleSubmit(e) {
+        e.preventDefault();
         console.log(this.state);
     }
 
@@ -58,6 +56,7 @@ class Form extends Component {
                             type='text'
                             value={this.state.id}
                         />
+                        <Marker variant='is' />
                         <TextInput
                             name='user_email'
                             onChange={this.handleChange}
@@ -72,6 +71,8 @@ class Form extends Component {
                             type='text'
                             value={this.state.user_first_name}
                         />
+                    </div>
+                    <div className='filter-block'>
                         <TextInput
                             name='user_last_name'
                             onChange={this.handleChange}
@@ -93,6 +94,8 @@ class Form extends Component {
                             type='text'
                             value={this.state.screen_height}
                         />
+                    </div>
+                    <div className='filter-block'>
                         <TextInput
                             name='visits'
                             onChange={this.handleChange}
@@ -114,6 +117,8 @@ class Form extends Component {
                             type='text'
                             value={this.state.domain}
                         />
+                    </div>
+                    <div className='filter-block'>
                         <TextInput
                             name='path'
                             onChange={this.handleChange}
@@ -121,22 +126,30 @@ class Form extends Component {
                             type='text'
                             value={this.state.path}
                         />
-                        <TextInput
-                            name='password'
-                            onChange={this.handleChange}
-                            placeholder='Password'
-                            type='password'
-                            value={this.state.password}
-                        />
 
-                        <SelectMenu>
-                            <option>Test</option>
-                        </SelectMenu>
+                        {/* <SelectMenu>
+                            <Option value='test'>Test</Option>
+                        </SelectMenu> */}
 
-                        {/* <label className='label'>Pick your editor</label> */}
+                        <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
+                            {/* Strings */}
+                            <option value='equals'>equals</option>
+                            <option value='contains'>contains</option>
+                            <option value='starts with'>starts with</option>
+                            <option value='in list'>in list</option>
+                        </select>
+
+                        <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
+                            {/* Integers */}
+                            <option value='equals'>equals</option>
+                            <option value='between'>between</option>
+                            <option value='greater than'>greater than</option>
+                            <option value='less than'>less than</option>
+                            <option value='in list'>in list</option>
+                        </select>
+
                         <div className='select'>
-                            <select value={this.state.editor} name='editor' onChange={this.handleChange}>
-                                {/* <Option>Test</Option> */}
+                            <select value={this.state.selectOption} name='selectOption' onChange={this.handleChange}>
                                 <option value='0'>Select Option:</option>
                                 <option value='User Email'>User Email</option>
                                 <option value='Screen Width'>Screen Width</option>
@@ -147,20 +160,6 @@ class Form extends Component {
                                 <option value='Page Response time (ms)'>Page Response time (ms)</option>
                                 <option value='Domain'>Domain</option>
                                 <option value='Page Path'>Page Path</option>
-                                {/* Strings */}
-                                <option value='equals'>equals</option>
-                                <option value='contains'>contains</option>
-                                <option value='starts with'>starts with</option>
-                                <option value='in list'>in list</option>
-                                {/* Integers */}
-                                <option value='equals'>equals</option>
-                                <option value='between'>between</option>
-                                <option value='greater than'>greater than</option>
-                                <option value='less than'>less than</option>
-                                <option value='in list'>in list</option>
-                                {/* Default */}
-                                <option value='vscode'>VsCode</option>
-                                <option value='atom'>Atom</option>
                             </select>
                         </div>
                     </div>
@@ -176,33 +175,12 @@ class Form extends Component {
                 </form>
                 <Generated>
                     {/* SELECT studentID, FirstName, LastName, FirstName + ' ' + LastName AS FullName FROM session; */}
-                    SELECT id, user_email, user_first_name, user_last_name, screen_width, screen_height, visits,
-                    page_response, domain, path FROM session;
+                    SELECT {this.state.id}, {this.state.user_email}, {this.state.user_first_name},{' '}
+                    {this.state.user_last_name}, {this.state.screen_width}, {this.state.screen_height},{' '}
+                    {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
+                    FROM session;
                     <br />
-                    Password: {this.state.password}
-                    <br />
-                    Choice in Editor: {this.state.editor}
-                    <br />
-                    <br />
-                    id: {this.state.id}
-                    <br />
-                    user_email: {this.state.user_email}
-                    <br />
-                    user_first_name: {this.state.user_first_name}
-                    <br />
-                    user_last_name: {this.state.user_last_name}
-                    <br />
-                    screen_width: {this.state.screen_width}
-                    <br />
-                    screen_height: {this.state.screen_height}
-                    <br />
-                    visits: {this.state.visits}
-                    <br />
-                    page_response: {this.state.page_response}
-                    <br />
-                    domain: {this.state.domain}
-                    <br />
-                    path: {this.state.path}
+                    Choice in selectOption: {this.state.selectOption}
                 </Generated>
             </>
         );
