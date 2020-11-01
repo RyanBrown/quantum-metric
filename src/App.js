@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Form from './Components/Form/Form';
+// import Form from './Components/Form/Form';
+import FilterBlock from './Components/FilterBlock/FilterBlock';
+import Button from './Components/Button/Button';
 import './styles/global.scss';
 
 class App extends Component {
@@ -7,25 +9,6 @@ class App extends Component {
         super(props);
         this.state = {
             filterBlock: [{ value: 'row1' }],
-
-            fullname: '',
-            emailaddress: '',
-            password: '',
-            editor: '',
-            message: '',
-            terms: false,
-            test: '',
-
-            id: '',
-            user_email: '',
-            user_first_name: '',
-            user_last_name: '',
-            screen_width: '',
-            screen_height: '',
-            visits: '',
-            page_response: '',
-            domain: '',
-            path: '',
         };
     }
 
@@ -53,33 +36,20 @@ class App extends Component {
     render() {
         return (
             <>
-                <Form />
-
-                {/* <h1>Search for Session</h1>
-
+                <h1>Search for Session</h1>
+                {/* <Form /> */}
                 {this.state.filterBlock.map((row, index) => {
                     return (
-                        <div
-                            className='filter-block'
-                            key={index}
-                            value={row.value}
-                            onChange={(e) => this.updateValue(e, index)}
-                        >
+                        <FilterBlock key={index} value={row.value} onChange={(e) => this.updateValue(e, index)}>
                             <Button onClick={this.deleteFilterBlock} variant='close'>
                                 &times;
                             </Button>
-                            <TextInput />
-                            <Marker variant='is' />
-                            <SelectMenu />
-                        </div>
+                        </FilterBlock>
                     );
                 })}
                 <Button onClick={this.addFilterBlock} variant='primary'>
                     And
                 </Button>
-
-                <ActionBar />
-                <Generated /> */}
             </>
         );
     }
