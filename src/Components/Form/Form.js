@@ -7,6 +7,7 @@ import TextInput from '../TextInput/TextInput';
 
 import './styles.scss';
 
+// Set hook for inputs
 export const useInput = (initialValue) => {
     const [value, setValue] = useState(initialValue);
 
@@ -73,13 +74,6 @@ export default function Form() {
         resetStringOptions();
         resetIntegerOptions();
     };
-
-    let email;
-    let greeting = 'Good';
-    if (email < 18) {
-        greeting();
-    } else {
-    }
 
     return (
         <>

@@ -36,7 +36,7 @@ export default function FilterBlock(props) {
                 {props.children}
             </RowBlock>
 
-            {/* Add Aditional Form Blocks */}
+            {/* Add Additional Form Blocks */}
             {filterBlocks.map((block, index) => {
                 return (
                     <RowBlock key={index}>
