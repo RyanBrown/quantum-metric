@@ -74,9 +74,7 @@ export default function Conditional() {
 
     let selectedArea;
     if (predicatedOptions === 'User Email') {
-        selectedArea = 'User Email was selected';
-    } else if (predicatedOptions === 'User Email') {
-        selectedArea = 'test email';
+        selectedArea = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
     } else if (predicatedOptions === 'Screen Width') {
         selectedArea = (
             <>
@@ -112,13 +110,13 @@ export default function Conditional() {
             </>
         );
     } else if (predicatedOptions === '# of Visits') {
-        selectedArea = 'test visits';
+        selectedArea = <TextInput type='text' {...bindVisits} placeholder='Visits' />;
     } else if (predicatedOptions === 'First Name') {
-        selectedArea = 'test first';
+        selectedArea = <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />;
     } else if (predicatedOptions === 'Last Name') {
-        selectedArea = 'test last';
+        selectedArea = <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />;
     } else if (predicatedOptions === 'Page Response time (ms)') {
-        selectedArea = 'test time';
+        selectedArea = <TextInput type='text' {...bindPageResponse} placeholder='Page Response' />;
     } else if (predicatedOptions === 'Domain') {
         selectedArea = (
             <>
@@ -133,9 +131,9 @@ export default function Conditional() {
             </>
         );
     } else if (predicatedOptions === 'Page Path') {
-        selectedArea = 'test path';
+        selectedArea = <TextInput type='text' {...bindPath} placeholder='Path' />;
     } else {
-        selectedArea = "It doesn't work";
+        selectedArea = null;
     }
 
     return (
