@@ -128,7 +128,9 @@ export default function Conditional() {
     const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
     let selectedArea;
-    if (predicatedOptions === 'userEmail') {
+    if (predicatedOptions === 'id') {
+        selectedArea = <>{inputId}</>;
+    } else if (predicatedOptions === 'userEmail') {
         selectedArea = <>{inputEmail}</>;
     } else if (predicatedOptions === 'screenWidth') {
         selectedArea = (
@@ -154,18 +156,18 @@ export default function Conditional() {
         selectedArea = <>{inputVisits}</>;
     } else if (predicatedOptions === 'userFirstName') {
         selectedArea = <>{inputFirstName}</>;
-    } else if (predicatedOptions === 'Last Name') {
+    } else if (predicatedOptions === 'userLastName') {
         selectedArea = <>{inputLastName}</>;
-    } else if (predicatedOptions === 'Page Response time (ms)') {
+    } else if (predicatedOptions === 'pageResponse') {
         selectedArea = <>{inputPageResponse}</>;
-    } else if (predicatedOptions === 'Domain') {
+    } else if (predicatedOptions === 'domain') {
         selectedArea = (
             <>
                 {stringMenu}
                 {inputDomain}
             </>
         );
-    } else if (predicatedOptions === 'Page Path') {
+    } else if (predicatedOptions === 'pagePath') {
         selectedArea = <>{inputPath}</>;
     } else {
         selectedArea = null;
