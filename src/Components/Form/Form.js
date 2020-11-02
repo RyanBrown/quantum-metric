@@ -1,201 +1,148 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button';
 import FilterBlock from '../FilterBlock/FilterBlock';
-import Marker from '../Marker/Marker';
+// import Marker from '../Marker/Marker';
 import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
 
 import './styles.scss';
 
-class Form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: '',
-            user_email: '',
-            user_first_name: '',
-            user_last_name: '',
-            screen_width: '',
-            screen_height: '',
-            visits: '',
-            page_response: '',
-            domain: '',
-            path: '',
-            predicatedOptions: '',
-            stringOptions: '',
-            integerOptions: '',
-        };
+export const useInput = (initialValue) => {
+    const [value, setValue] = useState(initialValue);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    return {
+        value,
+        setValue,
+        reset: () => setValue(''),
+        bind: {
+            value,
+            onChange: (event) => {
+                setValue(event.target.value);
+            },
+        },
+    };
+};
 
-    handleChange(e) {
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+export default function Form() {
+    const { value: id, bind: bindId, reset: resetId } = useInput('');
+    const { value: userEmail, bind: bindUserEmail, reset: resetUserEmail } = useInput('');
+    const { value: userFirstName, bind: bindUserFirstName, reset: resetUserFirstName } = useInput('');
+    const { value: userLastName, bind: bindUserLastName, reset: resetUserLastName } = useInput('');
+    const { value: screenWidth, bind: bindScreenWidth, reset: resetScreenWidth } = useInput('');
+    const { value: screenHeight, bind: bindScreenHeight, reset: resetScreenHeight } = useInput('');
+    const { value: visits, bind: bindVisits, reset: resetVisits } = useInput('');
+    const { value: pageResponse, bind: bindPageResponse, reset: resetPageResponse } = useInput('');
+    const { value: domain, bind: bindDomain, reset: resetDomain } = useInput('');
+    const { value: path, bind: bindPath, reset: resetPath } = useInput('');
+    const { value: predicatedOptions, bind: bindPredicatedOptions, reset: resetPredicatedOptions } = useInput('');
+    const { value: stringOptions, bind: bindStringOptions, reset: resetStringOptions } = useInput('');
+    const { value: integerOptions, bind: bindIntegerOptions, reset: resetIntegerOptions } = useInput('');
 
-        this.setState({
-            [name]: value,
-        });
-    }
-
-    handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-    }
+        resetId();
+        resetUserEmail();
+        resetUserFirstName();
+        resetUserLastName();
+        resetScreenWidth();
+        resetScreenHeight();
+        resetVisits();
+        resetPageResponse();
+        resetDomain();
+        resetPath();
+        resetPredicatedOptions();
+        resetStringOptions();
+        resetIntegerOptions();
 
-    handleReset(e) {
+        alert(`Submitting Name ${userFirstName} ${userLastName}`);
+    };
+
+    const handleReset = (e) => {
         e.preventDefault();
+        resetId();
+        resetUserEmail();
+        resetUserFirstName();
+        resetUserLastName();
+        resetScreenWidth();
+        resetScreenHeight();
+        resetVisits();
+        resetPageResponse();
+        resetDomain();
+        resetPath();
+        resetPredicatedOptions();
+        resetStringOptions();
+        resetIntegerOptions();
+    };
+
+    let email;
+    let greeting = 'Good';
+    if (email < 18) {
+        greeting();
+    } else {
     }
 
-    render() {
-        return (
-            <>
-                <form className='form' onSubmit={this.handleSubmit}>
-                    <FilterBlock>
-                        <SelectMenu
-                            value={this.state.predicatedOptions}
-                            name='predicatedOptions'
-                            onChange={this.handleChange}
-                        >
-                            <option value='0'>Predicated fields</option>
-                            <option value='User Email'>User Email</option>
-                            <option value='Screen Width'>Screen Width</option>
-                            <option value='Screen Height'>Screen Height</option>
-                            <option value='# of Visits'># of Visits</option>
-                            <option value='First Name'>First Name</option>
-                            <option value='Last Name'>Last Name</option>
-                            <option value='Page Response time (ms)'>Page Response time (ms)</option>
-                            <option value='Domain'>Domain</option>
-                            <option value='Page Path'>Page Path</option>
-                        </SelectMenu>
-                        <TextInput
-                            name='id'
-                            onChange={this.handleChange}
-                            placeholder='id'
-                            type='text'
-                            value={this.state.id}
-                        />
-                        <Marker variant='is' />
-                        <TextInput
-                            name='user_email'
-                            onChange={this.handleChange}
-                            placeholder='User Email'
-                            type='email'
-                            value={this.state.user_email}
-                        />
-                        <TextInput
-                            name='user_first_name'
-                            onChange={this.handleChange}
-                            placeholder='First Name'
-                            type='text'
-                            value={this.state.user_first_name}
-                        />
-                        <TextInput
-                            name='user_last_name'
-                            onChange={this.handleChange}
-                            placeholder='Last Name'
-                            type='text'
-                            value={this.state.user_last_name}
-                        />
-                        <TextInput
-                            name='screen_width'
-                            onChange={this.handleChange}
-                            placeholder='Screen Width'
-                            type='text'
-                            value={this.state.screen_width}
-                        />
-                        <TextInput
-                            name='screen_height'
-                            onChange={this.handleChange}
-                            placeholder='Screen Height'
-                            type='text'
-                            value={this.state.screen_height}
-                        />
-                        <TextInput
-                            name='visits'
-                            onChange={this.handleChange}
-                            placeholder='# of Visits'
-                            type='text'
-                            value={this.state.visits}
-                        />
-                        <TextInput
-                            name='page_response'
-                            onChange={this.handleChange}
-                            placeholder='Page Response time (ms)'
-                            type='text'
-                            value={this.state.page_response}
-                        />
-                        <TextInput
-                            name='domain'
-                            onChange={this.handleChange}
-                            placeholder='Domain'
-                            type='text'
-                            value={this.state.domain}
-                        />
-                        <TextInput
-                            name='path'
-                            onChange={this.handleChange}
-                            placeholder='Page Path'
-                            type='text'
-                            value={this.state.path}
-                        />
-
-                        <SelectMenu value={this.state.stringOptions} name='stringOptions' onChange={this.handleChange}>
-                            <option value='0'>Strings</option>
-                            <option value='='>equals</option>
-                            <option value='CONTAINS'>contains</option>
-                            <option value='%STARTSWITH'>starts with</option>
-                            <option value='IN'>in list</option>
-                        </SelectMenu>
-
-                        <SelectMenu
-                            value={this.state.integerOptions}
-                            name='integerOptions'
-                            onChange={this.handleChange}
-                        >
-                            <option value='0'>Integers</option>
-                            <option value='='>equals</option>
-                            <option value='BETWEEN'>between</option>
-                            <option value='>'>greater than</option>
-                            <option value='<'>less than</option>
-                            <option value='IN'>in list</option>
-                        </SelectMenu>
-                    </FilterBlock>
-
-                    <div className='action-bar'>
-                        <Button type='submit' value='Submit' variant='primary'>
-                            Search
-                        </Button>
-                        <Button type='reset' value='reset'>
-                            Reset
-                        </Button>
-                    </div>
-                </form>
-
-                <div className='generated-sql'>
-                    <pre>
-                        <code>
-                            {/* SELECT studentID, FirstName, LastName, FirstName + ' ' + LastName AS FullName FROM session; */}
-                            SELECT {this.state.id}, {this.state.user_email}, {this.state.user_first_name},{' '}
-                            {this.state.user_last_name}, {this.state.screen_width}, {this.state.screen_height},{' '}
-                            {this.state.visits}, {this.state.page_response}, {this.state.domain}, {this.state.path}
-                            FROM session;
-                            <br />
-                            {this.state.predicatedOptions}
-                            <br />
-                            Strings:
-                            {this.state.stringOptions}
-                            <br />
-                            Integers:
-                            {this.state.integerOptions}
-                        </code>
-                    </pre>
+    return (
+        <>
+            <form onSubmit={handleSubmit} onReset={handleReset}>
+                <FilterBlock>
+                    <SelectMenu {...bindPredicatedOptions}>
+                        <option value='0'>Predicated fields</option>
+                        <option value='User Email'>User Email</option>
+                        <option value='Screen Width'>Screen Width</option>
+                        <option value='Screen Height'>Screen Height</option>
+                        <option value='# of Visits'># of Visits</option>
+                        <option value='First Name'>First Name</option>
+                        <option value='Last Name'>Last Name</option>
+                        <option value='Page Response time (ms)'>Page Response time (ms)</option>
+                        <option value='Domain'>Domain</option>
+                        <option value='Page Path'>Page Path</option>
+                    </SelectMenu>
+                    <TextInput type='text' {...bindId} placeholder='id' />
+                    <TextInput type='email' {...bindUserEmail} placeholder='Email' />
+                    <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />
+                    <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />
+                    <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
+                    <TextInput type='text' {...bindScreenHeight} placeholder='Screen Height' />
+                    <TextInput type='text' {...bindVisits} placeholder='Visits' />
+                    <TextInput type='text' {...bindPageResponse} placeholder='Page Response' />
+                    <TextInput type='url' {...bindDomain} placeholder='Domain' />
+                    <TextInput type='text' {...bindPath} placeholder='Path' />
+                    <SelectMenu {...bindStringOptions}>
+                        <option value='0'>Strings</option>
+                        <option value='='>equals</option>
+                        <option value='CONTAINS'>contains</option>
+                        <option value='%STARTSWITH'>starts with</option>
+                        <option value='IN'>in list</option>
+                    </SelectMenu>
+                    <SelectMenu {...bindIntegerOptions}>
+                        <option value='0'>Integers</option>
+                        <option value='='>equals</option>
+                        <option value='BETWEEN'>between</option>
+                        <option value='>'>greater than</option>
+                        <option value='<'>less than</option>
+                        <option value='IN'>in list</option>
+                    </SelectMenu>
+                </FilterBlock>
+                <div className='action-bar'>
+                    <Button type='submit' variant='primary' size='lg'>
+                        Search
+                    </Button>
+                    <Button type='reset' value='Reset' size='lg'>
+                        Reset
+                    </Button>
                 </div>
-            </>
-        );
-    }
-}
+            </form>
 
-export default Form;
+            <div className='generated-sql'>
+                <pre>
+                    <code>
+                        SELECT
+                        {id}, {userEmail}, {userFirstName}, {userLastName}, {screenWidth},{screenHeight}, {visits},
+                        {pageResponse}, {domain}, {path}, {predicatedOptions}, {stringOptions}, {integerOptions} FROM
+                        session;
+                    </code>
+                </pre>
+            </div>
+        </>
+    );
+}
