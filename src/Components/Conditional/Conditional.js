@@ -80,22 +80,21 @@ export default function Conditional() {
 
     const predicatedMenu = (
         <SelectMenu {...bindPredicatedOptions}>
-            <option value='0'>Predicated fields</option>
-            <option value='User Email'>User Email</option>
-            <option value='Screen Width'>Screen Width</option>
-            <option value='Screen Height'>Screen Height</option>
-            <option value='# of Visits'># of Visits</option>
-            <option value='First Name'>First Name</option>
-            <option value='Last Name'>Last Name</option>
-            <option value='Page Response time (ms)'>Page Response time (ms)</option>
-            <option value='Domain'>Domain</option>
-            <option value='Page Path'>Page Path</option>
+            <option value='id'>id</option>
+            <option value='userEmail'>User Email</option>
+            <option value='userFirstName'>First Name</option>
+            <option value='userLastName'>Last Name</option>
+            <option value='screenWidth'>Screen Width</option>
+            <option value='screenHeight'>Screen Height</option>
+            <option value='visits'># of Visits</option>
+            <option value='pageResponse'>Page Response time (ms)</option>
+            <option value='domain'>Domain</option>
+            <option value='path'>Page Path</option>
         </SelectMenu>
     );
 
     const integerMenu = (
         <SelectMenu {...bindIntegerOptions}>
-            <option value='0'>Integers</option>
             <option value='='>equals</option>
             <option value='BETWEEN'>between</option>
             <option value='>'>greater than</option>
@@ -105,7 +104,6 @@ export default function Conditional() {
     );
     const stringMenu = (
         <SelectMenu {...bindStringOptions}>
-            <option value='0'>Strings</option>
             <option value='='>equals</option>
             <option value='CONTAINS'>contains</option>
             <option value='%STARTSWITH'>starts with</option>
@@ -116,7 +114,7 @@ export default function Conditional() {
     const isMarker = <Marker variant='is' />;
     const andMarker = <Marker variant='and' />;
 
-    const inputText = <TextInput type='text' {...bindId} placeholder='id' />;
+    const inputId = <TextInput type='text' {...bindId} placeholder='id' />;
     const inputEmail = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
     const inputFirstName = <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />;
     const inputLastName = <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />;
@@ -130,9 +128,9 @@ export default function Conditional() {
     const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
     let selectedArea;
-    if (predicatedOptions === 'User Email') {
-        selectedArea = { inputEmail };
-    } else if (predicatedOptions === 'Screen Width') {
+    if (predicatedOptions === 'userEmail') {
+        selectedArea = <>{inputEmail}</>;
+    } else if (predicatedOptions === 'screenWidth') {
         selectedArea = (
             <>
                 {isMarker}
@@ -142,7 +140,7 @@ export default function Conditional() {
                 {inputScreenWidthMax}
             </>
         );
-    } else if (predicatedOptions === 'Screen Height') {
+    } else if (predicatedOptions === 'screenHeight') {
         selectedArea = (
             <>
                 {isMarker}
@@ -152,14 +150,14 @@ export default function Conditional() {
                 {inputScreenHeightMax}
             </>
         );
-    } else if (predicatedOptions === '# of Visits') {
-        selectedArea = { inputVisits };
-    } else if (predicatedOptions === 'First Name') {
-        selectedArea = { inputFirstName };
+    } else if (predicatedOptions === 'visits') {
+        selectedArea = <>{inputVisits}</>;
+    } else if (predicatedOptions === 'userFirstName') {
+        selectedArea = <>{inputFirstName}</>;
     } else if (predicatedOptions === 'Last Name') {
-        selectedArea = { inputLastName };
+        selectedArea = <>{inputLastName}</>;
     } else if (predicatedOptions === 'Page Response time (ms)') {
-        selectedArea = { inputPageResponse };
+        selectedArea = <>{inputPageResponse}</>;
     } else if (predicatedOptions === 'Domain') {
         selectedArea = (
             <>
@@ -168,7 +166,7 @@ export default function Conditional() {
             </>
         );
     } else if (predicatedOptions === 'Page Path') {
-        selectedArea = { inputPath };
+        selectedArea = <>{inputPath}</>;
     } else {
         selectedArea = null;
     }
@@ -191,7 +189,25 @@ export default function Conditional() {
                 </div>
             </form>
 
-            {predicatedOptions}
+            <div className='generated-sql'>
+                <pre>
+                    <code>
+                        {predicatedOptions}
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        SELECT
+                        {id}, {userEmail}, {userFirstName}, {userLastName}, {screenWidthMin}, {screenWidthMax},{' '}
+                        {screenHeightMin}, {screenHeightMax} {visits},{pageResponse}, {domain}, {path},{' '}
+                        {predicatedOptions}, {stringOptions}, {integerOptions} FROM session;
+                        <br />
+                        <br />
+                        <br />
+                        Screen Height is {screenHeightMin} {integerOptions} AND {screenHeightMax}
+                    </code>
+                </pre>
+            </div>
         </>
     );
 }
