@@ -72,6 +72,17 @@ export default function Conditional() {
         resetIntegerOptions();
     };
 
+    const integerMenu = (
+        <SelectMenu {...bindIntegerOptions}>
+            <option value='0'>Integers</option>
+            <option value='='>equals</option>
+            <option value='BETWEEN'>between</option>
+            <option value='>'>greater than</option>
+            <option value='<'>less than</option>
+            <option value='IN'>in list</option>
+        </SelectMenu>
+    );
+
     let selectedArea;
     if (predicatedOptions === 'User Email') {
         selectedArea = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
@@ -79,14 +90,15 @@ export default function Conditional() {
         selectedArea = (
             <>
                 <Marker variant='is' />
-                <SelectMenu {...bindIntegerOptions}>
+                {integerMenu}
+                {/* <SelectMenu {...bindIntegerOptions}>
                     <option value='0'>Integers</option>
                     <option value='='>equals</option>
                     <option value='BETWEEN'>between</option>
                     <option value='>'>greater than</option>
                     <option value='<'>less than</option>
                     <option value='IN'>in list</option>
-                </SelectMenu>
+                </SelectMenu> */}
                 <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
                 <Marker variant='and' />
                 <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
@@ -96,14 +108,7 @@ export default function Conditional() {
         selectedArea = (
             <>
                 <Marker variant='is' />
-                <SelectMenu {...bindIntegerOptions}>
-                    <option value='0'>Integers</option>
-                    <option value='='>equals</option>
-                    <option value='BETWEEN'>between</option>
-                    <option value='>'>greater than</option>
-                    <option value='<'>less than</option>
-                    <option value='IN'>in list</option>
-                </SelectMenu>
+                {integerMenu}
                 <TextInput type='text' {...bindScreenHeight} placeholder='Screen Height' />
                 <Marker variant='and' />
                 <TextInput type='text' {...bindScreenHeight} placeholder='Screen Height' />
