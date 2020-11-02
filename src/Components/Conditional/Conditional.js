@@ -129,9 +129,19 @@ export default function Conditional() {
 
     let selectedArea;
     if (predicatedOptions === 'id') {
-        selectedArea = <>{inputId}</>;
+        selectedArea = (
+            <>
+                {stringMenu}
+                {inputId}
+            </>
+        );
     } else if (predicatedOptions === 'userEmail') {
-        selectedArea = <>{inputEmail}</>;
+        selectedArea = (
+            <>
+                {stringMenu}
+                {inputEmail}
+            </>
+        );
     } else if (predicatedOptions === 'screenWidth') {
         selectedArea = (
             <>
@@ -153,13 +163,39 @@ export default function Conditional() {
             </>
         );
     } else if (predicatedOptions === 'visits') {
-        selectedArea = <>{inputVisits}</>;
+        selectedArea = (
+            <>
+                {isMarker}
+                {integerMenu}
+                {inputVisits}
+                {andMarker}
+                {inputVisits}
+            </>
+        );
     } else if (predicatedOptions === 'userFirstName') {
-        selectedArea = <>{inputFirstName}</>;
+        selectedArea = (
+            <>
+                {stringMenu}
+                {inputFirstName}
+            </>
+        );
     } else if (predicatedOptions === 'userLastName') {
-        selectedArea = <>{inputLastName}</>;
+        selectedArea = (
+            <>
+                {stringMenu}
+                {inputLastName}
+            </>
+        );
     } else if (predicatedOptions === 'pageResponse') {
-        selectedArea = <>{inputPageResponse}</>;
+        selectedArea = (
+            <>
+                {isMarker}
+                {integerMenu}
+                {inputPageResponse}
+                {andMarker}
+                {inputPageResponse}
+            </>
+        );
     } else if (predicatedOptions === 'domain') {
         selectedArea = (
             <>
@@ -168,7 +204,12 @@ export default function Conditional() {
             </>
         );
     } else if (predicatedOptions === 'pagePath') {
-        selectedArea = <>{inputPath}</>;
+        selectedArea = (
+            <>
+                {stringMenu}
+                {inputPath}
+            </>
+        );
     } else {
         selectedArea = null;
     }
