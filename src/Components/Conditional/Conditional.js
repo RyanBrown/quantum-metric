@@ -72,6 +72,21 @@ export default function Conditional() {
         resetIntegerOptions();
     };
 
+    const predicatedMenu = (
+        <SelectMenu {...bindPredicatedOptions}>
+            <option value='0'>Predicated fields</option>
+            <option value='User Email'>User Email</option>
+            <option value='Screen Width'>Screen Width</option>
+            <option value='Screen Height'>Screen Height</option>
+            <option value='# of Visits'># of Visits</option>
+            <option value='First Name'>First Name</option>
+            <option value='Last Name'>Last Name</option>
+            <option value='Page Response time (ms)'>Page Response time (ms)</option>
+            <option value='Domain'>Domain</option>
+            <option value='Page Path'>Page Path</option>
+        </SelectMenu>
+    );
+
     const integerMenu = (
         <SelectMenu {...bindIntegerOptions}>
             <option value='0'>Integers</option>
@@ -79,6 +94,15 @@ export default function Conditional() {
             <option value='BETWEEN'>between</option>
             <option value='>'>greater than</option>
             <option value='<'>less than</option>
+            <option value='IN'>in list</option>
+        </SelectMenu>
+    );
+    const stringMenu = (
+        <SelectMenu {...bindStringOptions}>
+            <option value='0'>Strings</option>
+            <option value='='>equals</option>
+            <option value='CONTAINS'>contains</option>
+            <option value='%STARTSWITH'>starts with</option>
             <option value='IN'>in list</option>
         </SelectMenu>
     );
@@ -91,14 +115,6 @@ export default function Conditional() {
             <>
                 <Marker variant='is' />
                 {integerMenu}
-                {/* <SelectMenu {...bindIntegerOptions}>
-                    <option value='0'>Integers</option>
-                    <option value='='>equals</option>
-                    <option value='BETWEEN'>between</option>
-                    <option value='>'>greater than</option>
-                    <option value='<'>less than</option>
-                    <option value='IN'>in list</option>
-                </SelectMenu> */}
                 <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
                 <Marker variant='and' />
                 <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
@@ -125,13 +141,7 @@ export default function Conditional() {
     } else if (predicatedOptions === 'Domain') {
         selectedArea = (
             <>
-                <SelectMenu {...bindStringOptions}>
-                    <option value='0'>Strings</option>
-                    <option value='='>equals</option>
-                    <option value='CONTAINS'>contains</option>
-                    <option value='%STARTSWITH'>starts with</option>
-                    <option value='IN'>in list</option>
-                </SelectMenu>
+                {stringMenu}
                 <TextInput type='url' {...bindDomain} placeholder='Domain' />
             </>
         );
@@ -145,19 +155,7 @@ export default function Conditional() {
         <>
             <form onSubmit={handleSubmit} onReset={handleReset}>
                 <FilterBlock>
-                    <SelectMenu {...bindPredicatedOptions}>
-                        <option value='0'>Predicated fields</option>
-                        <option value='User Email'>User Email</option>
-                        <option value='Screen Width'>Screen Width</option>
-                        <option value='Screen Height'>Screen Height</option>
-                        <option value='# of Visits'># of Visits</option>
-                        <option value='First Name'>First Name</option>
-                        <option value='Last Name'>Last Name</option>
-                        <option value='Page Response time (ms)'>Page Response time (ms)</option>
-                        <option value='Domain'>Domain</option>
-                        <option value='Page Path'>Page Path</option>
-                    </SelectMenu>
-
+                    {predicatedMenu}
                     {selectedArea}
                 </FilterBlock>
 
