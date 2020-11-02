@@ -28,8 +28,10 @@ export default function Conditional() {
     const { value: userEmail, bind: bindUserEmail, reset: resetUserEmail } = useInput('');
     const { value: userFirstName, bind: bindUserFirstName, reset: resetUserFirstName } = useInput('');
     const { value: userLastName, bind: bindUserLastName, reset: resetUserLastName } = useInput('');
-    const { value: screenWidth, bind: bindScreenWidth, reset: resetScreenWidth } = useInput('');
-    const { value: screenHeight, bind: bindScreenHeight, reset: resetScreenHeight } = useInput('');
+    const { value: screenWidthMin, bind: bindScreenWidthMin, reset: resetScreenWidthMin } = useInput('');
+    const { value: screenWidthMax, bind: bindScreenWidthMax, reset: resetScreenWidthMax } = useInput('');
+    const { value: screenHeightMin, bind: bindScreenHeightMin, reset: resetScreenHeightMin } = useInput('');
+    const { value: screenHeightMax, bind: bindScreenHeightMax, reset: resetScreenHeightMax } = useInput('');
     const { value: visits, bind: bindVisits, reset: resetVisits } = useInput('');
     const { value: pageResponse, bind: bindPageResponse, reset: resetPageResponse } = useInput('');
     const { value: domain, bind: bindDomain, reset: resetDomain } = useInput('');
@@ -44,8 +46,10 @@ export default function Conditional() {
         resetUserEmail();
         resetUserFirstName();
         resetUserLastName();
-        resetScreenWidth();
-        resetScreenHeight();
+        resetScreenWidthMin();
+        resetScreenWidthMax();
+        resetScreenHeightMin();
+        resetScreenHeightMax();
         resetVisits();
         resetPageResponse();
         resetDomain();
@@ -61,8 +65,10 @@ export default function Conditional() {
         resetUserEmail();
         resetUserFirstName();
         resetUserLastName();
-        resetScreenWidth();
-        resetScreenHeight();
+        resetScreenWidthMin();
+        resetScreenWidthMax();
+        resetScreenHeightMin();
+        resetScreenHeightMax();
         resetVisits();
         resetPageResponse();
         resetDomain();
@@ -107,46 +113,62 @@ export default function Conditional() {
         </SelectMenu>
     );
 
+    const isMarker = <Marker variant='is' />;
+    const andMarker = <Marker variant='and' />;
+
+    const inputText = <TextInput type='text' {...bindId} placeholder='id' />;
+    const inputEmail = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
+    const inputFirstName = <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />;
+    const inputLastName = <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />;
+    const inputScreenWidthMin = <TextInput type='number' {...bindScreenWidthMin} placeholder='Screen Width' />;
+    const inputScreenWidthMax = <TextInput type='number' {...bindScreenWidthMax} placeholder='Screen Width' />;
+    const inputScreenHeightMin = <TextInput type='number' {...bindScreenHeightMin} placeholder='Screen Height' />;
+    const inputScreenHeightMax = <TextInput type='number' {...bindScreenHeightMax} placeholder='Screen Height' />;
+    const inputVisits = <TextInput type='text' {...bindVisits} placeholder='Visits' />;
+    const inputPageResponse = <TextInput type='text' {...bindPageResponse} placeholder='Page Response' />;
+    const inputDomain = <TextInput type='url' {...bindDomain} placeholder='Domain' />;
+    const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
+
     let selectedArea;
     if (predicatedOptions === 'User Email') {
-        selectedArea = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
+        selectedArea = { inputEmail };
     } else if (predicatedOptions === 'Screen Width') {
         selectedArea = (
             <>
-                <Marker variant='is' />
+                {isMarker}
                 {integerMenu}
-                <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
-                <Marker variant='and' />
-                <TextInput type='text' {...bindScreenWidth} placeholder='Screen Width' />
+                {inputScreenWidthMin}
+                {andMarker}
+                {inputScreenWidthMax}
             </>
         );
     } else if (predicatedOptions === 'Screen Height') {
         selectedArea = (
             <>
-                <Marker variant='is' />
+                {isMarker}
                 {integerMenu}
-                <TextInput type='text' {...bindScreenHeight} placeholder='Screen Height' />
-                <Marker variant='and' />
-                <TextInput type='text' {...bindScreenHeight} placeholder='Screen Height' />
+                {inputScreenHeightMin}
+                {andMarker}
+                {inputScreenHeightMax}
             </>
         );
     } else if (predicatedOptions === '# of Visits') {
-        selectedArea = <TextInput type='text' {...bindVisits} placeholder='Visits' />;
+        selectedArea = { inputVisits };
     } else if (predicatedOptions === 'First Name') {
-        selectedArea = <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />;
+        selectedArea = { inputFirstName };
     } else if (predicatedOptions === 'Last Name') {
-        selectedArea = <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />;
+        selectedArea = { inputLastName };
     } else if (predicatedOptions === 'Page Response time (ms)') {
-        selectedArea = <TextInput type='text' {...bindPageResponse} placeholder='Page Response' />;
+        selectedArea = { inputPageResponse };
     } else if (predicatedOptions === 'Domain') {
         selectedArea = (
             <>
                 {stringMenu}
-                <TextInput type='url' {...bindDomain} placeholder='Domain' />
+                {inputDomain}
             </>
         );
     } else if (predicatedOptions === 'Page Path') {
-        selectedArea = <TextInput type='text' {...bindPath} placeholder='Path' />;
+        selectedArea = { inputPath };
     } else {
         selectedArea = null;
     }
