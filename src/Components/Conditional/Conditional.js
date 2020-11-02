@@ -127,97 +127,225 @@ export default function Conditional() {
     const inputDomain = <TextInput type='url' {...bindDomain} placeholder='Domain' />;
     const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
-    let selectedArea;
-    if (predicatedOptions === 'userEmail') {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputEmail}
-            </>
-        );
-    } else if (predicatedOptions === 'screenWidth') {
-        selectedArea = (
-            <>
-                {isMarker}
-                {integerMenu}
-                {inputScreenWidthMin}
-                {andMarker}
-                {inputScreenWidthMax}
-            </>
-        );
-    } else if (predicatedOptions === 'screenHeight') {
-        selectedArea = (
-            <>
-                {isMarker}
-                {integerMenu}
-                {inputScreenHeightMin}
-                {andMarker}
-                {inputScreenHeightMax}
-            </>
-        );
-    } else if (predicatedOptions === 'visits') {
-        selectedArea = (
-            <>
-                {isMarker}
-                {integerMenu}
-                {inputVisits}
-                {andMarker}
-                {inputVisits}
-            </>
-        );
-    } else if (predicatedOptions === 'userFirstName') {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputFirstName}
-            </>
-        );
-    } else if (predicatedOptions === 'userLastName') {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputLastName}
-            </>
-        );
-    } else if (predicatedOptions === 'pageResponse') {
-        selectedArea = (
-            <>
-                {isMarker}
-                {integerMenu}
-                {inputPageResponse}
-                {andMarker}
-                {inputPageResponse}
-            </>
-        );
-    } else if (predicatedOptions === 'domain') {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputDomain}
-            </>
-        );
-    } else if (predicatedOptions === 'pagePath') {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputPath}
-            </>
-        );
-    } else {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputId}
-            </>
-        );
-    }
+    // let selectedArea;
+    // if (predicatedOptions === 'userEmail') {
+    //     selectedArea = (
+    //         <>
+    //             {stringMenu}
+    //             {inputEmail}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'screenWidth') {
+    //     selectedArea = (
+    //         <>
+    //             {isMarker}
+    //             {integerMenu}
+    //             {inputScreenWidthMin}
+    //             {andMarker}
+    //             {inputScreenWidthMax}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'screenHeight') {
+    //     selectedArea = (
+    //         <>
+    //             {isMarker}
+    //             {integerMenu}
+    //             {inputScreenHeightMin}
+    //             {andMarker}
+    //             {inputScreenHeightMax}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'visits') {
+    //     selectedArea = (
+    //         <>
+    //             {isMarker}
+    //             {integerMenu}
+    //             {inputVisits}
+    //             {andMarker}
+    //             {inputVisits}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'userFirstName') {
+    //     selectedArea = (
+    //         <>
+    //             {stringMenu}
+    //             {inputFirstName}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'userLastName') {
+    //     selectedArea = (
+    //         <>
+    //             {stringMenu}
+    //             {inputLastName}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'pageResponse') {
+    //     selectedArea = (
+    //         <>
+    //             {isMarker}
+    //             {integerMenu}
+    //             {inputPageResponse}
+    //             {andMarker}
+    //             {inputPageResponse}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'domain') {
+    //     selectedArea = (
+    //         <>
+    //             {stringMenu}
+    //             {inputDomain}
+    //         </>
+    //     );
+    // } else if (predicatedOptions === 'pagePath') {
+    //     selectedArea = (
+    //         <>
+    //             {stringMenu}
+    //             {inputPath}
+    //         </>
+    //     );
+    // } else {
+    //     selectedArea = (
+    //         <>
+    //             {stringMenu}
+    //             {inputId}
+    //         </>
+    //     );
+    // }
+
+    // switch (x) {
+    //     case 'userEmail':
+    //         return (
+    //             <>
+    //                 {stringMenu}
+    //                 {inputEmail}
+    //             </>
+    //         );
+    //     case 'screenWidth':
+    //         return <>Screen Width</>;
+    //         break;
+    //     case 'screenHeight':
+    //         return <>Screen Height</>;
+    //         break;
+    //     case 'visits':
+    //         return <>Visits</>;
+    //         break;
+    //     case 'userFirstName':
+    //         return <></>;
+    //         break;
+    //     case 'userLastName':
+    //         return <>Last Name</>;
+    //         break;
+    //     case 'pageResponse':
+    //         return <>Page Response</>;
+    //         break;
+    //     case 'domain':
+    //         return <>Domain</>;
+    //         break;
+    //     case 'pagePath:':
+    //         return <>Page Path</>;
+    //         break;
+    //     default:
+    //         return null;
+    // }
 
     return (
         <>
             <form onSubmit={handleSubmit} onReset={handleReset}>
                 <FilterBlock>
                     {predicatedMenu}
-                    {selectedArea}
+                    {/* {selectedArea} */}
+                    {(() => {
+                        // switch (predicatedOptions) {
+                        //     case 'screenHeight':
+                        //         return <>{inputEmail}</>;
+                        //     default:
+                        //         return <>{isMarker}</>;
+                        // }
+                        switch (predicatedOptions) {
+                            case 'userEmail':
+                                return (
+                                    <>
+                                        {stringMenu}
+                                        {inputEmail}
+                                    </>
+                                );
+                            case 'screenWidth':
+                                return (
+                                    <>
+                                        {isMarker}
+                                        {integerMenu}
+                                        {inputScreenWidthMin}
+                                        {andMarker}
+                                        {inputScreenWidthMax}
+                                    </>
+                                );
+                            case 'screenHeight':
+                                return (
+                                    <>
+                                        {isMarker}
+                                        {integerMenu}
+                                        {inputScreenHeightMin}
+                                        {andMarker}
+                                        {inputScreenHeightMax}
+                                    </>
+                                );
+                            case 'visits':
+                                return (
+                                    <>
+                                        {isMarker}
+                                        {integerMenu}
+                                        {inputVisits}
+                                        {andMarker}
+                                        {inputVisits}
+                                    </>
+                                );
+                            case 'userFirstName':
+                                return (
+                                    <>
+                                        {stringMenu}
+                                        {inputFirstName}
+                                    </>
+                                );
+                            case 'userLastName':
+                                return (
+                                    <>
+                                        {stringMenu}
+                                        {inputLastName}
+                                    </>
+                                );
+                            case 'pageResponse':
+                                return (
+                                    <>
+                                        {isMarker}
+                                        {integerMenu}
+                                        {inputPageResponse}
+                                        {andMarker}
+                                        {inputPageResponse}
+                                    </>
+                                );
+                            case 'domain':
+                                return (
+                                    <>
+                                        {stringMenu}
+                                        {inputDomain}
+                                    </>
+                                );
+                            case 'pagePath':
+                                return (
+                                    <>
+                                        {stringMenu}
+                                        {inputPath}
+                                    </>
+                                );
+                            default:
+                                return (
+                                    <>
+                                        {stringMenu}
+                                        {inputId}
+                                    </>
+                                );
+                        }
+                    })()}
                 </FilterBlock>
 
                 <div className='action-bar'>
