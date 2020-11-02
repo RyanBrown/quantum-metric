@@ -9,7 +9,8 @@ const RowBlock = (props) => {
 
 // Add/Remove blocks for form inputs
 export default function FilterBlock(props) {
-    const [filterBlocks, setBlock] = useState([0]);
+    // const [filterBlocks, setBlock] = useState([0]);
+    const [filterBlocks, setBlock] = useState([]);
     const [block, setNewBlock] = useState('');
 
     const addItems = () => {
@@ -29,6 +30,13 @@ export default function FilterBlock(props) {
 
     return (
         <>
+            {/* Initial Form Block - update this with state */}
+            <RowBlock>
+                <Button variant='close'>&times;</Button>
+                {props.children}
+            </RowBlock>
+
+            {/* Add Aditional Form Blocks */}
             {filterBlocks.map((block, index) => {
                 return (
                     <RowBlock key={index}>

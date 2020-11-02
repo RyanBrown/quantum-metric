@@ -45,6 +45,10 @@ class Form extends Component {
         console.log(this.state);
     }
 
+    handleReset(e) {
+        e.preventDefault();
+    }
+
     render() {
         return (
             <>
