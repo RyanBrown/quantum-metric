@@ -128,14 +128,7 @@ export default function Conditional() {
     const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
     let selectedArea;
-    if (predicatedOptions === 'id') {
-        selectedArea = (
-            <>
-                {stringMenu}
-                {inputId}
-            </>
-        );
-    } else if (predicatedOptions === 'userEmail') {
+    if (predicatedOptions === 'userEmail') {
         selectedArea = (
             <>
                 {stringMenu}
@@ -211,7 +204,12 @@ export default function Conditional() {
             </>
         );
     } else {
-        selectedArea = null;
+        selectedArea = (
+            <>
+                {stringMenu}
+                {inputId}
+            </>
+        );
     }
 
     return (
