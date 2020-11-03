@@ -61,6 +61,7 @@ export default function Conditional() {
         resetPredicatedOptions();
         resetStringOptions();
         resetIntegerOptions();
+        console.log('Submit Clicked');
     };
 
     const handleReset = (e) => {
@@ -84,6 +85,7 @@ export default function Conditional() {
 
     const predicatedMenu = (
         <SelectMenu {...bindPredicatedOptions}>
+            <option>Select Option</option>
             <option value='id'>id</option>
             <option value='userEmail'>User Email</option>
             <option value='userFirstName'>First Name</option>
@@ -99,6 +101,7 @@ export default function Conditional() {
 
     const integerMenu = (
         <SelectMenu {...bindIntegerOptions}>
+            <option>Select Operator(s)</option>
             <option value='='>equals</option>
             <option value='BETWEEN'>between</option>
             <option value='>'>greater than</option>
@@ -109,6 +112,7 @@ export default function Conditional() {
 
     const stringMenu = (
         <SelectMenu {...bindStringOptions}>
+            <option>Select Operator(s)</option>
             <option value='='>equals</option>
             <option value='CONTAINS'>contains</option>
             <option value='%STARTSWITH'>starts with</option>
@@ -199,21 +203,58 @@ export default function Conditional() {
                 </div>
             </form>
             <div className='generated-sql'>
-                <pre>
-                    <code>
-                        {predicatedOptions}
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        SELECT
-                        {id}, {userEmail}, {userFirstName}, {userLastName}, {screenWidthMin}, {screenWidthMax},{' '}
-                        {screenHeightMin}, {screenHeightMax} {visits},{pageResponse}, {domain}, {path},{' '}
-                        {predicatedOptions}, {stringOptions}, {integerOptions} FROM session;
-                        <br />
-                        Screen Height is {screenHeightMin} {integerOptions} AND {screenHeightMax}
-                    </code>
-                </pre>
+                {/* <pre> */}
+                {/* <code> */}
+                SELECT
+                <br />
+                {predicatedOptions}, {stringOptions},{integerOptions}
+                <br />
+                <br />
+                {/* ID */}
+                {predicatedOptions} {stringOptions} {id}
+                <br />
+                <br />
+                {/* userEmail */}
+                {predicatedOptions}
+                {stringOptions} {userEmail}
+                <br />
+                <br />
+                {/* userFirstName */}
+                {predicatedOptions}
+                {stringOptions} {userFirstName}
+                <br />
+                <br />
+                {/* userLastName */}
+                {predicatedOptions} {stringOptions} {userLastName}
+                <br />
+                <br />
+                {/* screenWidth */}
+                {predicatedOptions} IS {integerOptions} {screenWidthMin} AND {screenWidthMax}
+                <br />
+                <br />
+                {/* screenHeight */}
+                {predicatedOptions} IS {integerOptions} {screenHeightMin} AND {screenHeightMax}
+                <br />
+                <br />
+                {/* visits */}
+                {predicatedOptions} {visits}
+                <br />
+                <br />
+                {/* pageResponse */}
+                {predicatedOptions} {pageResponse}
+                <br />
+                <br />
+                {/* domain */}
+                {predicatedOptions} {domain}
+                <br />
+                <br />
+                {/* path */}
+                {predicatedOptions} {path}
+                <br />
+                <br />
+                FROM session;
+                {/* </code>
+                </pre> */}
             </div>
         </>
     );
