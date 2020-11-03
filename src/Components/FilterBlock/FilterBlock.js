@@ -33,7 +33,7 @@ export default function FilterBlock(props) {
             {filterBlocks.map((block, index) => {
                 return (
                     <RowBlock key={index}>
-                        <Button key={index} id={index} onClick={() => removeItems(index)} variant='close'>
+                        <Button key={index} id={index} onClick={() => removeItems(index)} type='reset' variant='close'>
                             &times;
                         </Button>
                         {props.children}
