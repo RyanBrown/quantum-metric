@@ -1,11 +1,15 @@
 import React from 'react';
 import Button from '../Button/Button';
 import FilterBlock from '../FilterBlock/FilterBlock';
-import Marker from '../Marker/Marker';
 import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
 import useInput from './useInputHook';
 import './styles.scss';
+
+// Set up form block wrappers
+const Marker = (props) => {
+    return <span className='marker'>{props.variant}</span>;
+};
 
 export default function Conditional() {
     const { value: id, bind: bindId, reset: resetId } = useInput('');
@@ -23,6 +27,22 @@ export default function Conditional() {
     const { value: predicatedOptions, bind: bindPredicatedOptions, reset: resetPredicatedOptions } = useInput('');
     const { value: stringOptions, bind: bindStringOptions, reset: resetStringOptions } = useInput('');
     const { value: integerOptions, bind: bindIntegerOptions, reset: resetIntegerOptions } = useInput('');
+
+    const isMarker = <Marker variant='is' />;
+    const andMarker = <Marker variant='and' />;
+
+    const inputId = <TextInput type='text' {...bindId} placeholder='id' />;
+    const inputEmail = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
+    const inputFirstName = <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />;
+    const inputLastName = <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />;
+    const inputScreenWidthMin = <TextInput type='number' {...bindScreenWidthMin} placeholder='Screen Width' />;
+    const inputScreenWidthMax = <TextInput type='number' {...bindScreenWidthMax} placeholder='Screen Width' />;
+    const inputScreenHeightMin = <TextInput type='number' {...bindScreenHeightMin} placeholder='Screen Height' />;
+    const inputScreenHeightMax = <TextInput type='number' {...bindScreenHeightMax} placeholder='Screen Height' />;
+    const inputVisits = <TextInput type='text' {...bindVisits} placeholder='Visits' />;
+    const inputPageResponse = <TextInput type='text' {...bindPageResponse} placeholder='Page Response' />;
+    const inputDomain = <TextInput type='url' {...bindDomain} placeholder='Domain' />;
+    const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -96,22 +116,6 @@ export default function Conditional() {
         </SelectMenu>
     );
 
-    const isMarker = <Marker variant='is' />;
-    const andMarker = <Marker variant='and' />;
-
-    const inputId = <TextInput type='text' {...bindId} placeholder='id' />;
-    const inputEmail = <TextInput type='email' {...bindUserEmail} placeholder='Email' />;
-    const inputFirstName = <TextInput type='text' {...bindUserFirstName} placeholder='First Name' />;
-    const inputLastName = <TextInput type='text' {...bindUserLastName} placeholder='Last Name' />;
-    const inputScreenWidthMin = <TextInput type='number' {...bindScreenWidthMin} placeholder='Screen Width' />;
-    const inputScreenWidthMax = <TextInput type='number' {...bindScreenWidthMax} placeholder='Screen Width' />;
-    const inputScreenHeightMin = <TextInput type='number' {...bindScreenHeightMin} placeholder='Screen Height' />;
-    const inputScreenHeightMax = <TextInput type='number' {...bindScreenHeightMax} placeholder='Screen Height' />;
-    const inputVisits = <TextInput type='text' {...bindVisits} placeholder='Visits' />;
-    const inputPageResponse = <TextInput type='text' {...bindPageResponse} placeholder='Page Response' />;
-    const inputDomain = <TextInput type='url' {...bindDomain} placeholder='Domain' />;
-    const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
-
     return (
         <>
             <form onSubmit={handleSubmit} onReset={handleReset}>
@@ -122,83 +126,63 @@ export default function Conditional() {
                             case 'userEmail':
                                 return (
                                     <>
-                                        {stringMenu}
-                                        {inputEmail}
+                                        {stringMenu} {inputEmail}
                                     </>
                                 );
                             case 'screenWidth':
                                 return (
                                     <>
-                                        {isMarker}
-                                        {integerMenu}
-                                        {inputScreenWidthMin}
-                                        {andMarker}
-                                        {inputScreenWidthMax}
+                                        {isMarker} {integerMenu} {inputScreenWidthMin} {andMarker} {inputScreenWidthMax}
                                     </>
                                 );
                             case 'screenHeight':
                                 return (
                                     <>
-                                        {isMarker}
-                                        {integerMenu}
-                                        {inputScreenHeightMin}
-                                        {andMarker}
+                                        {isMarker} {integerMenu} {inputScreenHeightMin} {andMarker}
                                         {inputScreenHeightMax}
                                     </>
                                 );
                             case 'visits':
                                 return (
                                     <>
-                                        {isMarker}
-                                        {integerMenu}
-                                        {inputVisits}
-                                        {andMarker}
+                                        {isMarker} {integerMenu} {inputVisits} {andMarker}
                                         {inputVisits}
                                     </>
                                 );
                             case 'userFirstName':
                                 return (
                                     <>
-                                        {stringMenu}
-                                        {inputFirstName}
+                                        {stringMenu} {inputFirstName}
                                     </>
                                 );
                             case 'userLastName':
                                 return (
                                     <>
-                                        {stringMenu}
-                                        {inputLastName}
+                                        {stringMenu} {inputLastName}
                                     </>
                                 );
                             case 'pageResponse':
                                 return (
                                     <>
-                                        {isMarker}
-                                        {integerMenu}
-                                        {inputPageResponse}
-                                        {andMarker}
-                                        {inputPageResponse}
+                                        {isMarker} {integerMenu} {inputPageResponse} {andMarker} {inputPageResponse}
                                     </>
                                 );
                             case 'domain':
                                 return (
                                     <>
-                                        {stringMenu}
-                                        {inputDomain}
+                                        {stringMenu} {inputDomain}
                                     </>
                                 );
                             case 'pagePath':
                                 return (
                                     <>
-                                        {stringMenu}
-                                        {inputPath}
+                                        {stringMenu} {inputPath}
                                     </>
                                 );
                             default:
                                 return (
                                     <>
-                                        {stringMenu}
-                                        {inputId}
+                                        {stringMenu} {inputId}
                                     </>
                                 );
                         }
@@ -214,7 +198,6 @@ export default function Conditional() {
                     </Button>
                 </div>
             </form>
-
             <div className='generated-sql'>
                 <pre>
                     <code>

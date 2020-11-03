@@ -1,5 +1,19 @@
 @import '../../styles/variables.scss';
 
+// Marker for is/and block
+.marker {
+    align-items: center;
+    background-color: $gray-200;
+    border-radius: $border-radius-sm;
+    border: $input-border;
+    display: flex;
+    font-size: 1rem;
+    font-weight: $font-weight-regular;
+    line-height: 1;
+    margin: 0 0.25rem;
+    padding: 0.5rem 0.75rem;
+}
+
 // Search/Reset Bar
 .action-bar {
     border-top: 1px solid $gray-200;
