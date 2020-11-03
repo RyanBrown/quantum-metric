@@ -87,15 +87,15 @@ export default function Conditional() {
         <SelectMenu {...bindPredicatedOptions}>
             <option>Select Option</option>
             <option value='id'>id</option>
-            <option value='userEmail'>User Email</option>
-            <option value='userFirstName'>First Name</option>
-            <option value='userLastName'>Last Name</option>
-            <option value='screenWidth'>Screen Width</option>
-            <option value='screenHeight'>Screen Height</option>
-            <option value='visits'># of Visits</option>
-            <option value='pageResponse'>Page Response time (ms)</option>
-            <option value='domain'>Domain</option>
-            <option value='path'>Page Path</option>
+            <option value='Email'>User Email</option>
+            <option value='First_Name'>First Name</option>
+            <option value='Last_Name'>Last Name</option>
+            <option value='Screen_Width'>Screen Width</option>
+            <option value='Screen_Height'>Screen Height</option>
+            <option value='Num_Of_Visits'># of Visits</option>
+            <option value='Page_Response'>Page Response time (ms)</option>
+            <option value='Domain'>Domain</option>
+            <option value='Page_Path'>Page Path</option>
         </SelectMenu>
     );
 
@@ -203,58 +203,30 @@ export default function Conditional() {
                 </div>
             </form>
             <div className='generated-sql'>
-                {/* <pre> */}
-                {/* <code> */}
-                SELECT
-                <br />
-                {predicatedOptions}, {stringOptions},{integerOptions}
-                <br />
-                <br />
+                {/* <pre><code> */}
+                SELECT {predicatedOptions} {stringOptions} {integerOptions}
                 {/* ID */}
-                {predicatedOptions} {stringOptions} {id}
-                <br />
-                <br />
+                {id}
                 {/* userEmail */}
-                {predicatedOptions}
-                {stringOptions} {userEmail}
-                <br />
-                <br />
+                {userEmail}
                 {/* userFirstName */}
-                {predicatedOptions}
-                {stringOptions} {userFirstName}
-                <br />
-                <br />
+                {userFirstName}
                 {/* userLastName */}
-                {predicatedOptions} {stringOptions} {userLastName}
-                <br />
-                <br />
+                {userLastName}
                 {/* screenWidth */}
-                {predicatedOptions} IS {integerOptions} {screenWidthMin} AND {screenWidthMax}
-                <br />
-                <br />
+                {screenWidthMin} {screenWidthMax}
                 {/* screenHeight */}
-                {predicatedOptions} IS {integerOptions} {screenHeightMin} AND {screenHeightMax}
-                <br />
-                <br />
+                {screenHeightMin} {screenHeightMax}
                 {/* visits */}
-                {predicatedOptions} {visits}
-                <br />
-                <br />
+                {visits}
                 {/* pageResponse */}
-                {predicatedOptions} {pageResponse}
-                <br />
-                <br />
+                {pageResponse}
                 {/* domain */}
-                {predicatedOptions} {domain}
-                <br />
-                <br />
+                {domain}
                 {/* path */}
-                {predicatedOptions} {path}
-                <br />
-                <br />
+                {path}
                 FROM session;
-                {/* </code>
-                </pre> */}
+                {/* </code></pre> */}
             </div>
         </>
     );
