@@ -9,7 +9,6 @@ const RowBlock = (props) => {
 
 // Add/Remove blocks for form inputs
 export default function FilterBlock(props) {
-    // const [filterBlocks, setBlock] = useState([0]);
     const [filterBlocks, setBlock] = useState([0]);
     const [block, setNewBlock] = useState('');
 
