@@ -1,9 +1,7 @@
 import React from 'react';
-// import Button from '../Button/Button';
-import FilterBlock from '../FilterBlock/FilterBlock';
 import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
-import useInput from './useInputHook';
+import useInput from '../Hooks/useInputHook';
 import './styles.scss';
 
 // Set up form block wrappers
@@ -44,45 +42,6 @@ export default function Conditional() {
     const inputDomain = <TextInput type='url' {...bindDomain} placeholder='Domain' />;
     const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     resetId();
-    //     resetUserEmail();
-    //     resetUserFirstName();
-    //     resetUserLastName();
-    //     resetScreenWidthMin();
-    //     resetScreenWidthMax();
-    //     resetScreenHeightMin();
-    //     resetScreenHeightMax();
-    //     resetVisits();
-    //     resetPageResponse();
-    //     resetDomain();
-    //     resetPath();
-    //     resetPredicatedOptions();
-    //     resetStringOptions();
-    //     resetIntegerOptions();
-    //     console.log('Submit Clicked');
-    // };
-
-    // const handleReset = (e) => {
-    //     e.preventDefault();
-    //     resetId();
-    //     resetUserEmail();
-    //     resetUserFirstName();
-    //     resetUserLastName();
-    //     resetScreenWidthMin();
-    //     resetScreenWidthMax();
-    //     resetScreenHeightMin();
-    //     resetScreenHeightMax();
-    //     resetVisits();
-    //     resetPageResponse();
-    //     resetDomain();
-    //     resetPath();
-    //     resetPredicatedOptions();
-    //     resetStringOptions();
-    //     resetIntegerOptions();
-    // };
-
     const predicatedMenu = (
         <SelectMenu {...bindPredicatedOptions}>
             <option>Select Option</option>
@@ -122,8 +81,6 @@ export default function Conditional() {
 
     return (
         <>
-            {/* <form onSubmit={handleSubmit} onReset={handleReset}> */}
-            {/* <FilterBlock> */}
             {predicatedMenu}
             {(() => {
                 switch (predicatedOptions) {
@@ -191,32 +148,12 @@ export default function Conditional() {
                         );
                 }
             })()}
-            {/* </FilterBlock> */}
 
-            {/* <div className='action-bar'>
-                    <Button type='submit' variant='primary' size='lg'>
-                        Search
-                    </Button>
-                    <Button type='reset' value='Reset' size='lg'>
-                        Reset
-                    </Button>
-                </div> */}
-            {/* </form> */}
             {/* <div className='generated-sql'>
                 SELECT
-                {predicatedOptions}, {stringOptions},{integerOptions}
-                {predicatedOptions} {stringOptions} {id}
-                {predicatedOptions}
-                {stringOptions} {userEmail}
-                {predicatedOptions}
-                {stringOptions} {userFirstName}
-                {predicatedOptions} {stringOptions} {userLastName}
-                {predicatedOptions} IS {integerOptions} {screenWidthMin} AND {screenWidthMax}
-                {predicatedOptions} IS {integerOptions} {screenHeightMin} AND {screenHeightMax}
-                {predicatedOptions} {visits}
-                {predicatedOptions} {pageResponse}
-                {predicatedOptions} {domain}
-                {predicatedOptions} {path}
+                {predicatedOptions} {stringOptions} {integerOptions} {id} {userEmail} {userFirstName} {userLastName}{' '}
+                {screenWidthMin} AND {screenWidthMax} {screenHeightMin} AND {screenHeightMax} {visits} {pageResponse}{' '}
+                {domain} {path}
                 FROM session;
             </div> */}
         </>
