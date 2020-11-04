@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+// Marker for is/and block
+.marker {
+    align-items: center;
+    background-color: $gray-200;
+    border-radius: $border-radius-sm;
+    border: $input-border;
+    display: flex;
+    font-size: 1rem;
+    font-weight: $font-weight-regular;
+    line-height: 1;
+    margin: 0 0.25rem;
+    padding: 0.5rem 0.75rem;
+}
+
+// Generated SQL
+.generated-sql {
+    background-color: $white;
+    border-radius: $border-radius-lg;
+    border: $input-border;
+    display: flex;
+    margin-top: 3rem;
+    min-height: 8rem;
+    padding: 1rem;
+
+    pre {
+        margin: 0;
+    }
+
+    code {
+        background-color: transparent;
+        border: none;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+}
