@@ -28,6 +28,26 @@ export default function MyForm(props) {
         });
     };
 
+    const selectFields = {};
+
+    const formFields = {
+        id: '',
+        userEmail: '',
+        userFirstName: '',
+        userLastName: '',
+        screenWidthMin: '',
+        screenWidthMax: '',
+        screenHeightMin: '',
+        screenHeightMax: '',
+        visits: '',
+        pageResponse: '',
+        domain: '',
+        path: '',
+        predicatedOptions: '',
+        stringOptions: '',
+        integerOptions: '',
+    };
+
     // Form
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -72,7 +92,20 @@ export default function MyForm(props) {
                 </div>
             </form>
 
-            <div className='generated-sql'></div>
+            <div className='generated-sql'>
+                {/* SELECT {predicatedOptions} {stringOptions} {integerOptions}
+                {id}
+                {userEmail}
+                {userFirstName}
+                {userLastName}
+                {screenWidthMin} {screenWidthMax}
+                {screenHeightMin} {screenHeightMax}
+                {visits}
+                {pageResponse}
+                {domain}
+                {path}
+                FROM session; */}
+            </div>
         </>
     );
 }
