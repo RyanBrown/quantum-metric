@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Form from './Components/Form/Form';
-import Conditional from './Components/Conditional/Conditional';
+import FilterBlock from './Components/FilterBlock/FilterBlock';
+
 import './styles/global.scss';
 
 ReactDOM.render(
     <React.StrictMode>
         <>
             <h1>Search for Session</h1>
-            <Conditional />
-            {/* <Form /> */}
+            <FilterBlock />
         </>
     </React.StrictMode>,
     document.getElementById('root')

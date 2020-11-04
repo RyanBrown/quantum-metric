@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Conditional from '../Conditional/Conditional';
 import Button from '../Button/Button';
 import './styles.scss';
 
@@ -27,8 +28,17 @@ export default function FilterBlock(props) {
         });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Submit Clicked');
+    };
+
+    const handleReset = (e) => {
+        e.preventDefault();
+    };
+
     return (
-        <>
+        <form onSubmit={handleSubmit} onReset={handleReset}>
             {/* Add Additional Form Blocks */}
             {filterBlocks.map((block, index) => {
                 return (
@@ -36,13 +46,23 @@ export default function FilterBlock(props) {
                         <Button key={index} id={index} onClick={() => removeItems(index)} type='reset' variant='close'>
                             &times;
                         </Button>
-                        {props.children}
+
+                        <Conditional />
                     </RowBlock>
                 );
             })}
             <Button variant='primary' onClick={addItems}>
                 And
             </Button>
-        </>
+
+            <div className='action-bar'>
+                <Button type='submit' variant='primary' size='lg'>
+                    Search
+                </Button>
+                <Button type='reset' value='Reset' size='lg'>
+                    Reset
+                </Button>
+            </div>
+        </form>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+// import Button from '../Button/Button';
 import FilterBlock from '../FilterBlock/FilterBlock';
 import SelectMenu from '../SelectMenu/SelectMenu';
 import TextInput from '../TextInput/TextInput';
@@ -44,44 +44,44 @@ export default function Conditional() {
     const inputDomain = <TextInput type='url' {...bindDomain} placeholder='Domain' />;
     const inputPath = <TextInput type='text' {...bindPath} placeholder='Path' />;
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        resetId();
-        resetUserEmail();
-        resetUserFirstName();
-        resetUserLastName();
-        resetScreenWidthMin();
-        resetScreenWidthMax();
-        resetScreenHeightMin();
-        resetScreenHeightMax();
-        resetVisits();
-        resetPageResponse();
-        resetDomain();
-        resetPath();
-        resetPredicatedOptions();
-        resetStringOptions();
-        resetIntegerOptions();
-        console.log('Submit Clicked');
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     resetId();
+    //     resetUserEmail();
+    //     resetUserFirstName();
+    //     resetUserLastName();
+    //     resetScreenWidthMin();
+    //     resetScreenWidthMax();
+    //     resetScreenHeightMin();
+    //     resetScreenHeightMax();
+    //     resetVisits();
+    //     resetPageResponse();
+    //     resetDomain();
+    //     resetPath();
+    //     resetPredicatedOptions();
+    //     resetStringOptions();
+    //     resetIntegerOptions();
+    //     console.log('Submit Clicked');
+    // };
 
-    const handleReset = (e) => {
-        e.preventDefault();
-        resetId();
-        resetUserEmail();
-        resetUserFirstName();
-        resetUserLastName();
-        resetScreenWidthMin();
-        resetScreenWidthMax();
-        resetScreenHeightMin();
-        resetScreenHeightMax();
-        resetVisits();
-        resetPageResponse();
-        resetDomain();
-        resetPath();
-        resetPredicatedOptions();
-        resetStringOptions();
-        resetIntegerOptions();
-    };
+    // const handleReset = (e) => {
+    //     e.preventDefault();
+    //     resetId();
+    //     resetUserEmail();
+    //     resetUserFirstName();
+    //     resetUserLastName();
+    //     resetScreenWidthMin();
+    //     resetScreenWidthMax();
+    //     resetScreenHeightMin();
+    //     resetScreenHeightMax();
+    //     resetVisits();
+    //     resetPageResponse();
+    //     resetDomain();
+    //     resetPath();
+    //     resetPredicatedOptions();
+    //     resetStringOptions();
+    //     resetIntegerOptions();
+    // };
 
     const predicatedMenu = (
         <SelectMenu {...bindPredicatedOptions}>
@@ -122,140 +122,103 @@ export default function Conditional() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} onReset={handleReset}>
-                <FilterBlock>
-                    {predicatedMenu}
-                    {(() => {
-                        switch (predicatedOptions) {
-                            case 'userEmail':
-                                return (
-                                    <>
-                                        {stringMenu} {inputEmail}
-                                    </>
-                                );
-                            case 'screenWidth':
-                                return (
-                                    <>
-                                        {isMarker} {integerMenu} {inputScreenWidthMin} {andMarker} {inputScreenWidthMax}
-                                    </>
-                                );
-                            case 'screenHeight':
-                                return (
-                                    <>
-                                        {isMarker} {integerMenu} {inputScreenHeightMin} {andMarker}
-                                        {inputScreenHeightMax}
-                                    </>
-                                );
-                            case 'visits':
-                                return (
-                                    <>
-                                        {isMarker} {integerMenu} {inputVisits} {andMarker}
-                                        {inputVisits}
-                                    </>
-                                );
-                            case 'userFirstName':
-                                return (
-                                    <>
-                                        {stringMenu} {inputFirstName}
-                                    </>
-                                );
-                            case 'userLastName':
-                                return (
-                                    <>
-                                        {stringMenu} {inputLastName}
-                                    </>
-                                );
-                            case 'pageResponse':
-                                return (
-                                    <>
-                                        {isMarker} {integerMenu} {inputPageResponse} {andMarker} {inputPageResponse}
-                                    </>
-                                );
-                            case 'domain':
-                                return (
-                                    <>
-                                        {stringMenu} {inputDomain}
-                                    </>
-                                );
-                            case 'pagePath':
-                                return (
-                                    <>
-                                        {stringMenu} {inputPath}
-                                    </>
-                                );
-                            default:
-                                return (
-                                    <>
-                                        {stringMenu} {inputId}
-                                    </>
-                                );
-                        }
-                    })()}
-                </FilterBlock>
+            {/* <form onSubmit={handleSubmit} onReset={handleReset}> */}
+            {/* <FilterBlock> */}
+            {predicatedMenu}
+            {(() => {
+                switch (predicatedOptions) {
+                    case 'userEmail':
+                        return (
+                            <>
+                                {stringMenu} {inputEmail}
+                            </>
+                        );
+                    case 'screenWidth':
+                        return (
+                            <>
+                                {isMarker} {integerMenu} {inputScreenWidthMin} {andMarker} {inputScreenWidthMax}
+                            </>
+                        );
+                    case 'screenHeight':
+                        return (
+                            <>
+                                {isMarker} {integerMenu} {inputScreenHeightMin} {andMarker}
+                                {inputScreenHeightMax}
+                            </>
+                        );
+                    case 'visits':
+                        return (
+                            <>
+                                {isMarker} {integerMenu} {inputVisits} {andMarker}
+                                {inputVisits}
+                            </>
+                        );
+                    case 'userFirstName':
+                        return (
+                            <>
+                                {stringMenu} {inputFirstName}
+                            </>
+                        );
+                    case 'userLastName':
+                        return (
+                            <>
+                                {stringMenu} {inputLastName}
+                            </>
+                        );
+                    case 'pageResponse':
+                        return (
+                            <>
+                                {isMarker} {integerMenu} {inputPageResponse} {andMarker} {inputPageResponse}
+                            </>
+                        );
+                    case 'domain':
+                        return (
+                            <>
+                                {stringMenu} {inputDomain}
+                            </>
+                        );
+                    case 'pagePath':
+                        return (
+                            <>
+                                {stringMenu} {inputPath}
+                            </>
+                        );
+                    default:
+                        return (
+                            <>
+                                {stringMenu} {inputId}
+                            </>
+                        );
+                }
+            })()}
+            {/* </FilterBlock> */}
 
-                <div className='action-bar'>
+            {/* <div className='action-bar'>
                     <Button type='submit' variant='primary' size='lg'>
                         Search
                     </Button>
                     <Button type='reset' value='Reset' size='lg'>
                         Reset
                     </Button>
-                </div>
-            </form>
-            <div className='generated-sql'>
-                {/* <pre> */}
-                {/* <code> */}
+                </div> */}
+            {/* </form> */}
+            {/* <div className='generated-sql'>
                 SELECT
-                <br />
                 {predicatedOptions}, {stringOptions},{integerOptions}
-                <br />
-                <br />
-                {/* ID */}
                 {predicatedOptions} {stringOptions} {id}
-                <br />
-                <br />
-                {/* userEmail */}
                 {predicatedOptions}
                 {stringOptions} {userEmail}
-                <br />
-                <br />
-                {/* userFirstName */}
                 {predicatedOptions}
                 {stringOptions} {userFirstName}
-                <br />
-                <br />
-                {/* userLastName */}
                 {predicatedOptions} {stringOptions} {userLastName}
-                <br />
-                <br />
-                {/* screenWidth */}
                 {predicatedOptions} IS {integerOptions} {screenWidthMin} AND {screenWidthMax}
-                <br />
-                <br />
-                {/* screenHeight */}
                 {predicatedOptions} IS {integerOptions} {screenHeightMin} AND {screenHeightMax}
-                <br />
-                <br />
-                {/* visits */}
                 {predicatedOptions} {visits}
-                <br />
-                <br />
-                {/* pageResponse */}
                 {predicatedOptions} {pageResponse}
-                <br />
-                <br />
-                {/* domain */}
                 {predicatedOptions} {domain}
-                <br />
-                <br />
-                {/* path */}
                 {predicatedOptions} {path}
-                <br />
-                <br />
                 FROM session;
-                {/* </code>
-                </pre> */}
-            </div>
+            </div> */}
         </>
     );
 }
